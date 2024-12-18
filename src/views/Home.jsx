@@ -126,7 +126,7 @@ export const Home = () => {
       <section id="juegos-preguntas">
         
         <div className='contenedor-titulos'>
-          <h1>APRENDE CON NUESTROS<span className='seccion-juego'>QUIZ Y DOCUMENTOS</span></h1>
+          <h1>APRENDE CON NUESTROS <span className='seccion-juego'>QUIZ Y DOCUMENTOS</span></h1>
         </div>
         <div className='contenedor-juegos-educativos'>
           <div className='juego-div'>
