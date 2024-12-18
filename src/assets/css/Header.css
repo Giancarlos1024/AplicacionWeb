@@ -1,0 +1,83 @@
+.Nav-header{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+}
+
+.logo-principal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+.logo-principal > a{
+    text-decoration: none;
+    font-size: 20px;
+}
+.titulo-header-principal{
+    color: #2185D7;
+    font-weight: bold;
+}
+.titulo-header{
+    color: black;
+}
+
+
+/**/
+.enlaces-pagina{
+    /* background-color: yellow;  */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* align-items: center; */
+}
+.enlaces-pagina > a {
+    text-decoration: none;
+    margin: 0px 20px;
+    color: black;
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    font-size: 15px;
+}
+
+.enlaces-pagina > a::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Posición en la parte inferior */
+    left: 0;
+    width: 0%; /* Ancho inicial */
+    height: 4px; /* Altura del "borde" */
+    background-color: #D19E66; /* Color del "borde" */
+    transition: width 0.5s ease; /* Animación suave */
+}
+
+.enlaces-pagina > a:hover::after {
+    width: 100%; /* Expande el "borde" al 100% del ancho */
+}
+
+
+
+
+/**/
+.Nav-buscador{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+    position: relative;
+}
+.Nav-buscador > img{
+    position: absolute;
+    left: 13px;
+}
+.Nav-buscador > input{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 50px;
+    width: 200px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+}

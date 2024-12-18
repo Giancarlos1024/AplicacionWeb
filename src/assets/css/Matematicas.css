@@ -1,0 +1,28 @@
+.math-game-container {
+    background: linear-gradient(to right, #f3e5f5, #e3f2fd);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card {
+    border: 2px solid #ffd700;
+  }
+  
+  .text-info {
+    color: #ff4500 !important;
+  }
+  
+  .btn {
+    transition: transform 0.2s;
+  }
+  
+  .btn:hover {
+    transform: scale(1.1);
+  }
+  
+  input {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+  }
+  
