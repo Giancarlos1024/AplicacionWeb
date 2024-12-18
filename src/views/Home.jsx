@@ -102,7 +102,7 @@ export const Home = () => {
       <section id="juegos-didacticos-cognitivos">
         
         <div className='contenedor-titulos'>
-          <h1>JUEGOS DIDACTICOS<span className='seccion-juego'>COGNITIVOS</span></h1>
+          <h1>JUEGOS DIDACTICOS <span className='seccion-juego'>COGNITIVOS</span></h1>
         </div>
 
         <div className='contenedor-juegos-educativos'>
