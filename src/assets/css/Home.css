@@ -1,5 +1,5 @@
 .FondoCarrusel-Banner{
-    background-image: url(img/fondoCarrusel.png);
+    background-image: url("../../img/fondoCarrusel.png");
     height: 739px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,7 +7,7 @@
 .FondoCarrusel-Banner > div{
     /* background-color: orange; */
     position: absolute;
-    bottom: 100px;
+    bottom: 40px;
     left: 180px;
     height: auto;
     width: 600px;
