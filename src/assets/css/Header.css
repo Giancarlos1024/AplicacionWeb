@@ -1,38 +1,63 @@
-.Nav-header{
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 20px;
+/* Header.css */
+.Nav-header {
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  position: relative;
 }
 
-.logo-principal{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    
-}
-.logo-principal > a{
-    text-decoration: none;
-    font-size: 20px;
-}
-.titulo-header-principal{
-    color: #2185D7;
-    font-weight: bold;
-}
 .titulo-header{
-    color: black;
+    font-size:20px;
 }
 
+.logo-principal {
+  display: flex;
+  align-items: center;
+}
+.logo-principal > a {
+    text-decoration: none;
+    
+  }
+.hamburger-menu {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-/**/
-.enlaces-pagina{
-    /* background-color: yellow;  */
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* align-items: center; */
+.enlaces-pagina {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aqua; */
+}
+
+.enlaces-pagina a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+}
+
+.Nav-buscador {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.Nav-buscador img {
+  position: absolute;
+  left: 13px;
+}
+
+.Nav-buscador input {
+  padding: 12px 50px;
+  width: 200px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.171);
 }
 .enlaces-pagina > a {
     text-decoration: none;
@@ -60,24 +85,50 @@
 
 
 
-/**/
-.Nav-buscador{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-right: 30px;
-    position: relative;
-}
-.Nav-buscador > img{
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 480px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .enlaces-pagina {
+    display: none;
+    flex-direction: column;
     position: absolute;
-    left: 13px;
-}
-.Nav-buscador > input{
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 50px;
-    width: 200px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.171);
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+  .enlaces-pagina > a{
+    padding-left: 0px;
+    margin: 0px 0px;
+  }
+
+  .enlaces-pagina.open {
+    display: flex;
+  }
+
+  .Nav-buscador {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .Nav-buscador input {
+    width: 100%;
+  }
+  .Nav-header {
+        
+        padding: 14px 0px;
+        
+    }
+    .logo-principal > a {
+        font-size: 20px;
+        text-decoration: none;
+    }
+    .logo-principal > img{
+        
+    }
 }

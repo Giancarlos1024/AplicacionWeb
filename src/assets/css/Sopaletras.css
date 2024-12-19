@@ -1,0 +1,72 @@
+.sopa-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .letter-box {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin: 2px;
+    font-size: 20px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .highlight {
+    background-color: yellow;
+    border: 2px solid red;
+  }
+  
+  
+  
+  .letter-box:hover {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  .letter-box.highlight {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .text-center ul {
+    list-style-type: none;
+  }
+  
+  .text-center ul li {
+    font-size: 1.2rem;
+  }
+  
+  .text-center ul li.text-success {
+    color: green;
+  }
+  
+  .text-center ul li.text-dark {
+    color: #343a40;
+  }
+  
+  .btn-lg {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.25rem;
+    border-radius: 25px;
+  }
+  
+  h1.display-4 {
+    font-weight: 700;
+    font-size: 3.5rem;
+  }
+  
+  h3.text-info {
+    font-size: 1.5rem;
+  }
+  
+  h4.text-success {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  

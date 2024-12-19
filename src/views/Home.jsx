@@ -91,13 +91,9 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <NavLink to="/memorama" className="button-jugar-educativos">Jugar</NavLink>
+            <NavLink to="/memorama" className="button-jugar-educativos button-memorama">Jugar</NavLink>
           </div>
         </div>
-
-
-
-
       </section>
       <section id="juegos-didacticos-cognitivos">
         

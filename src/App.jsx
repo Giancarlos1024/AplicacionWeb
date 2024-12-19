@@ -1,11 +1,11 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router"
 import { Home } from "./views/Home"
-import Ciencias from "./views/Juegos_Educativos/Ciencias"
+import { Ciencias } from "./views/Juegos_Educativos/Ciencias"
 import { Educacion } from "./views/Juegos_Educativos/Educacion"
 import Ingles from "./views/Juegos_Educativos/Ingles"
 import { Estudios } from "./views/Juegos_Educativos/Estudios"
-import Lenguaje from "./views/Juegos_Educativos/Lenguaje"
+import {Lenguaje} from "./views/Juegos_Educativos/Lenguaje"
 import { Matematicas } from "./views/Juegos_Educativos/Matematicas"
 import Sopaletras from "./views/Juegos_Didacticos/Sopaletras"
 import { Rompecabezas } from "./views/Juegos_Didacticos/Rompecabezas"

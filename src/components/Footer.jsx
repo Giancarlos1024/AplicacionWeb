@@ -40,7 +40,7 @@ export const Footer = () => {
           <a href="#">Privacidad</a>
         </div>
         <div className='subir-footer'>
-          <img src="img/subir.png" alt="logo" />
+         <a href="#"> <img src="img/subir.png" alt="logo" /></a>
         </div>
       </div>
     </footer>

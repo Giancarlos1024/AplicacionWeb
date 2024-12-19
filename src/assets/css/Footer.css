@@ -96,3 +96,45 @@
 .subir-footer > img{
     width: 40px;
 }
+
+@media  screen and (max-width:480px) {
+    .footer-web{
+        
+        padding: 15px;
+        height: auto;
+    }
+    .titulo-header-principal-footer{
+        
+        display: none;
+        
+    }
+    .opionesFooter > a{
+        
+        /* background-color: yellow; */
+        text-align: center;
+       
+        width: 80px;
+        
+    }
+    .logo-titulo > img{
+        width: 40px;
+    }
+    .informacion-footer{
+        
+        margin-bottom: 15px;
+    }
+    .informacion-footer > div > h3 {
+        
+        font-size: 15px;
+    }
+    .unidad-educativa > p {
+        font-size: 12px;
+        text-align: justify;
+    }
+    .contacto {
+        padding-left: 0px;
+    }
+    .contacto > p{
+        font-size: 12px;
+    }
+}

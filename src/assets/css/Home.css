@@ -153,5 +153,74 @@
 }
 
 
-
+@media screen and (max-width:480px) {
+    
+    .FondoCarrusel-Banner{
+        background-position: -163px 0px;
+    }
+    .FondoCarrusel-Banner > div > h1{
+        font-size: 47px;
+    }
+    .FondoCarrusel-Banner > div{
+        position: absolute;
+        bottom: -30px;
+        left: 13px;
+        height: auto;
+        width: 334px;
+    }
+    .contenedor-juegos-educativos{
+        padding: 0px;
+        padding-top: 10px;
+    }
+    .contenedor-memorama{
+        display: flex;
+        flex-direction: column;
+    }
+    .contenedor-memorama > div > img{
+        width: 300px;
+    }
+    .informacion-memorama{
+        padding-left: 0px;
+        
+    }
+    .informacion-memorama > p{
+       
+        line-height: 1.7;
+        font-size: 12px;
+    }
+    .subcontenedor-memorama{
+        flex-direction: column;
+    }
+    .subcontenedor-memorama > img{
+        width: 210px;
+        height: 150px;
+    }
+    .contenedor-check{
+        padding-top: 10px;
+    }
+    .subcontenedor-memorama > div > div > img{
+        width: 15px;
+        margin-right: 10px;
+    }
+    .subcontenedor-memorama > div > div > p{
+        font-size: 12px;
+    }
+    .juego-div > img{
+        /* background-color: orange; */
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    .juego-div > p{
+        padding: 10px 0px;
+    }
+    .contenedor-titulos > h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .button-memorama{
+        margin-left: 50px;
+    }
+}
 
