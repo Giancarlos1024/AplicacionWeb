@@ -11,7 +11,7 @@ export const Matematicas = () => {
   const [feedbackClass, setFeedbackClass] = useState("");
   const [isPlaying, setIsPlaying] = useState(true);
   const [answerType, setAnswerType] = useState("number");
-  const [timeLeft, setTimeLeft] = useState(10); // Tiempo en segundos
+  const [timeLeft, setTimeLeft] = useState(120); // Tiempo en segundos
   const [gameOver, setGameOver] = useState(false);
   
   const [answeredCorrectly, setAnsweredCorrectly] = useState(0); // Contador de respuestas correctas
@@ -174,7 +174,7 @@ export const Matematicas = () => {
     setScore(0); // Reiniciar la puntuación
     setAnsweredCorrectly(0); // Reiniciar las respuestas correctas
     setGameOver(false); // Restablecer el estado de fin de juego
-    setTimeLeft(10); // Restablecer el tiempo
+    setTimeLeft(120); // Restablecer el tiempo
     generateQuestion(); // Generar una nueva pregunta
   };
 
