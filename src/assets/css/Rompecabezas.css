@@ -42,7 +42,7 @@
 
 
 .container-rompecabezas{
-  background-image: url("img/fondos/fondo-rompe.jpg");
+  background-image: url("../../img/fondos/fondo-rompe.jpg");
   display: flex;
   flex-direction: column;
   height: 100vh;

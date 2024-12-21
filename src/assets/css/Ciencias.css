@@ -1,6 +1,6 @@
 
 .contenedorGlobalCiencia{
-    background-image: url("img/fondos/fondo2.jpg");
+    background-image: url("../../img/fondos/fondo2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0px -100px;
@@ -80,7 +80,7 @@
         width: 200px;
     }
     .contenedorGlobalCiencia{
-        background-image: url("img/fondo2.jpg");
+        background-image: url("../../img/fondos/fondo2.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0px 0px;
