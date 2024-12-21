@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../assets/css/Juego_Preguntas.css';
+import '../../assets/css/Juego_preguntas.css';
 
 const Juego_Preguntas = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
