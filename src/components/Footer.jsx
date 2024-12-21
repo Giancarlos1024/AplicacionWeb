@@ -22,10 +22,10 @@ export const Footer = () => {
           </div>
         </div>
         <div className='redes_sociales'>
-          <img src="img/twitter_red.png" alt="twitter" />
-          <img src="img/linkedin_red.png" alt="linkedin" />
-          <img src="img/facebook_red.png" alt="facebook" />
-          <img src="img/instagram_red.png" alt="instagram" />
+          <a href="#"><img src="img/twitter_red.png" alt="twitter" /></a>
+          <a href="#"><img src="img/linkedin_red.png" alt="linkedin" /></a>
+          <a href="#"><img src="img/facebook_red.png" alt="facebook" /></a>
+          <a href="#"><img src="img/instagram_red.png" alt="instagram" /></a>
         </div>
       
       </section>

@@ -36,3 +36,11 @@
     width: 500px;
     border-radius: 15px;
 }
+
+@media screen and (max-width:480px) {
+    #contenedor-ingles-g{
+        /* background-color: olive; */
+        height: 100%;
+    }
+    
+}

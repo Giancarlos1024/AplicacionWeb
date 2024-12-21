@@ -315,7 +315,7 @@ export const Estudios = () => {
   };
 
   return (
-    <div className="container py-2 contenedor-estudios-fondo">
+    <div className="container py-2 contenedor-estudios-fondo" id="contenedor-estudios-g">
       <div className="p-1">
         <div className="texto-titulo-estudios">
           <h1 className="text-center text-light font-weight-bold  animate-fadeIn">

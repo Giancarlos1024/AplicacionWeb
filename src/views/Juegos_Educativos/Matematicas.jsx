@@ -194,7 +194,7 @@ export const Matematicas = () => {
          </div>
           <div className="text-center mt-0">
             <h3 className="fw-bold m-0">
-              <span className="badge bg-danger" style={{ fontSize: "1.4rem" }}>Tiempo: {timeLeft} segundos</span>
+              <span className="badge bg-danger" style={{ fontSize: "1.2rem" }}>Tiempo: {timeLeft} segundos</span>
             </h3>
           </div>
         </div>

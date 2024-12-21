@@ -96,6 +96,7 @@ const Ingles = () => {
   return (
     <div
       className="container text-center p-4 contenedor-ingles"
+      id='contenedor-ingles-g'
       style={{
         fontFamily: "'Poppins', sans-serif",
       }}

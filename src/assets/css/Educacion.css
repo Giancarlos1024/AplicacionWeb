@@ -2,6 +2,8 @@
     background-image: url("../../img/fondos/fondoeducacion.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    /* background-color: yellow; */
+    height: 100%;
 }
 
 .titulo-educacion{
@@ -9,4 +11,12 @@
 }
 .descripcion-educacion{
     color: #fff;
+}
+
+@media screen and (max-width:480px) {
+    #contenedor-educacion-g{
+        /* background-color: olive; */
+        height: 100%;
+    }
+    
 }

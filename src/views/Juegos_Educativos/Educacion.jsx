@@ -105,8 +105,8 @@ export const Educacion = () => {
   };
 
   return (
-    <div className="contenedor-educacion">
-      <div className="container py-5">
+    <div className="contenedor-educacion" >
+      <div className="container  py-5" id="contenedor-educacion-g">
       <h1 className="text-center  mb-4 titulo-educacion">🎨 Crea tu propio dibujo</h1>
 
       {/* Instrucciones */}
