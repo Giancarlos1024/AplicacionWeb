@@ -1,12 +1,15 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../assets/css/Lenguaje.css';
 
 export const Lenguaje = () => {
   const [score, setScore] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false); // Estado para controlar si la música está reproduciéndose
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(120); // Tiempo en segundos
+  const [gameOver, setGameOver] = useState(false);
+  const [shuffledQuestions, setShuffledQuestions] = useState([]); // Estado para las preguntas aleatorias
 
-  // Referencias de audio
   const backgroundMusic = useRef(new Audio('music/musica_matematicas.mp3'));
   const correctSound = useRef(new Audio('music/correcto_matematicas.mp3'));
   const incorrectSound = useRef(new Audio('music/incorrecto.mp3'));
@@ -37,27 +40,151 @@ export const Lenguaje = () => {
       options: ['Adjetivo', 'Verbo', 'Adverbio'],
       correctAnswer: 'Adverbio',
     },
+    // Nuevas preguntas
+    {
+      question: '¿Qué es un adjetivo?',
+      options: ['Un verbo', 'Una acción', 'Una palabra que describe un sustantivo'],
+      correctAnswer: 'Una palabra que describe un sustantivo',
+    },
+    {
+      question: '¿Cuál es el antónimo de "grande"?',
+      options: ['Pequeño', 'Alto', 'Largo'],
+      correctAnswer: 'Pequeño',
+    },
+    {
+      question: '¿Qué significa la palabra "increíble"?',
+      options: ['Algo que se puede creer', 'Algo que es difícil de creer', 'Algo muy aburrido'],
+      correctAnswer: 'Algo que es difícil de creer',
+    },
+    {
+      question: '¿Cuál de estas palabras es un adverbio?',
+      options: ['Rápidamente', 'Niño', 'Correr'],
+      correctAnswer: 'Rápidamente',
+    },
+    {
+      question: '¿Cuál es el pronombre en la oración "Nosotros vamos al parque"?',
+      options: ['Nosotros', 'Vamos', 'Parque'],
+      correctAnswer: 'Nosotros',
+    },
+    {
+      question: '¿Qué significa "antónimo"?',
+      options: ['Palabra que significa lo mismo que otra', 'Palabra que significa lo contrario de otra', 'Palabra que describe una acción'],
+      correctAnswer: 'Palabra que significa lo contrario de otra',
+    },
+    {
+      question: '¿Cuál de las siguientes oraciones está en futuro?',
+      options: ['Ella baila', 'Ella bailó', 'Ella bailará'],
+      correctAnswer: 'Ella bailará',
+    },
+    {
+      question: '¿Qué tipo de palabra es "felicidad"?',
+      options: ['Sustantivo', 'Verbo', 'Adverbio'],
+      correctAnswer: 'Sustantivo',
+    },
+    {
+      question: '¿Cuál es el verbo en la oración "María lee un libro"?',
+      options: ['María', 'Lee', 'Libro'],
+      correctAnswer: 'Lee',
+    },
+    {
+      question: '¿Qué es un sinónimo?',
+      options: ['Palabra que significa lo mismo que otra', 'Palabra que significa lo contrario de otra', 'Palabra que describe una acción'],
+      correctAnswer: 'Palabra que significa lo mismo que otra',
+    },
+    {
+      question: '¿Cómo se llama la parte de la oración que indica quién o qué realiza la acción?',
+      options: ['Sujeto', 'Verbo', 'Complemento'],
+      correctAnswer: 'Sujeto',
+    },
+    {
+      question: '¿Qué tipo de palabra es "hermoso"?',
+      options: ['Adjetivo', 'Sustantivo', 'Verbo'],
+      correctAnswer: 'Adjetivo',
+    },
+    {
+      question: '¿Qué es un verbo?',
+      options: ['Una acción', 'Una persona', 'Un lugar'],
+      correctAnswer: 'Una acción',
+    },
+    {
+      question: '¿Qué palabra es un adverbio de lugar?',
+      options: ['Rápidamente', 'Aquí', 'Muy'],
+      correctAnswer: 'Aquí',
+    },
+    {
+      question: '¿Qué es una oración compuesta?',
+      options: ['Una oración que tiene un solo verbo', 'Una oración que tiene dos o más proposiciones unidas por una conjunción', 'Una oración que tiene un solo sustantivo'],
+      correctAnswer: 'Una oración que tiene dos o más proposiciones unidas por una conjunción',
+    },
+    {
+      question: '¿Cómo se llama la palabra que conecta dos oraciones?',
+      options: ['Conjunción', 'Adverbio', 'Interjección'],
+      correctAnswer: 'Conjunción',
+    },
+    {
+      question: '¿Qué es una interjección?',
+      options: ['Una palabra que expresa un sentimiento o emoción', 'Una palabra que indica una acción', 'Una palabra que describe un objeto'],
+      correctAnswer: 'Una palabra que expresa un sentimiento o emoción',
+    },
+    {
+      question: '¿Cómo se llama el conjunto de letras que forman una palabra?',
+      options: ['Sílabas', 'Palabra', 'Alfabeto'],
+      correctAnswer: 'Sílabas',
+    },
+    {
+      question: '¿Qué es un sujeto en una oración?',
+      options: ['La acción que se realiza', 'La palabra que describe una característica', 'La persona o cosa que realiza la acción'],
+      correctAnswer: 'La persona o cosa que realiza la acción',
+    },
+    {
+      question: '¿Cómo se llama la palabra que modifica a un verbo, adjetivo o a otro adverbio?',
+      options: ['Conjunción', 'Adverbio', 'Sustantivo'],
+      correctAnswer: 'Adverbio',
+    },
   ];
 
-  // Función para manejar la respuesta
-  const handleAnswer = (answer) => {
-    if (answer === questions[questionIndex].correctAnswer) {
-      setScore(score + 1);
-      correctSound.current.play(); // Reproducir sonido de respuesta correcta
-    } else {
-      incorrectSound.current.play(); // Reproducir sonido de respuesta incorrecta
+  // Función para mezclar las preguntas
+  const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5);
+  };
+
+  useEffect(() => {
+    // Mezclamos las preguntas al iniciar o reiniciar el juego
+    setShuffledQuestions(shuffleArray([...questions]));
+    setQuestionIndex(0); // Restablecer el índice de la pregunta
+    setScore(0); // Restablecer la puntuación
+    setTimeLeft(120); // Restablecer el tiempo
+    setGameOver(false); // Restablecer el estado del juego
+  }, []);
+
+  useEffect(() => {
+    if (timeLeft === 0) {
+      setGameOver(true);
     }
 
-    if (questionIndex < questions.length - 1) {
+    if (timeLeft > 0 && !gameOver) {
+      const timer = setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [timeLeft, gameOver]);
+
+  const handleAnswer = (answer) => {
+    if (answer === shuffledQuestions[questionIndex].correctAnswer) {
+      setScore(score + 1);
+      correctSound.current.play();
+    } else {
+      incorrectSound.current.play();
+    }
+
+    if (questionIndex < shuffledQuestions.length - 1 && !gameOver) {
       setQuestionIndex(questionIndex + 1);
     } else {
-      alert(`Juego terminado! Tu puntuación es: ${score}/${questions.length}`);
-      setScore(0);
-      setQuestionIndex(0);
+      setGameOver(true);
     }
   };
 
-  // Función para controlar la música de fondo
   const toggleBackgroundMusic = () => {
     if (isPlaying) {
       backgroundMusic.current.pause();
@@ -68,13 +195,23 @@ export const Lenguaje = () => {
     }
   };
 
+  const restartGame = () => {
+    setShuffledQuestions(shuffleArray([...questions])); // Mezclar preguntas al reiniciar
+    setQuestionIndex(0);
+    setScore(0);
+    setTimeLeft(120);
+    setGameOver(false);
+  };
+
   return (
-    <div className="container py-5">
-      <div className="card shadow-lg p-4" style={{ backgroundColor: '#f0f8ff' }}>
-        <h1 className="text-center text-primary font-weight-bold mb-4">📚 Juego de Lenguaje y Comunicación</h1>
+    <div className="container contenedor-lenguaje">
+      <div className="p-1 csss">
+        <div className="titulo-lenguaje">
+          <h1 className="text-center text-light font-weight-bold mb-4">🎮 Juego de Lenguaje y Comunicación</h1>
+        </div>
 
         {/* Música de fondo */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-2">
           <button
             onClick={toggleBackgroundMusic}
             className="btn btn-lg btn-info"
@@ -84,23 +221,33 @@ export const Lenguaje = () => {
           </button>
         </div>
 
+        {/* Cronómetro */}
+        {!gameOver && (
+          <div className="text-center mb-4 tiempo-lenguaje">
+            <h2 className="text-light">Tiempo: {timeLeft} segundos</h2>
+          </div>
+        )}
+
         {/* Pregunta */}
-        <h2 className="text-center text-secondary mb-4">{questions[questionIndex].question}</h2>
+        <div className="texto-pregunta-lenguaje">
+          <h2 className="text-center text-light mb-4">{shuffledQuestions[questionIndex]?.question}</h2>
+        </div>
 
         {/* Opciones de respuesta */}
-        <div className="d-flex justify-content-center flex-wrap mt-3">
-          {questions[questionIndex].options.map((option, index) => (
+        <div className="d-flex justify-content-center flex-wrap mt-1">
+          {shuffledQuestions[questionIndex]?.options.map((option, index) => (
             <button
               key={index}
-              className="btn btn-lg btn-outline-primary m-2 px-4 py-2"
+              className="btn btn-lg btn-outline-primary m-2 px-4 py-2 contenedor-opciones-lenguaje"
               onClick={() => handleAnswer(option)}
               style={{
-                fontSize: '1.2rem',
                 width: '200px',
                 transition: 'transform 0.3s ease',
+                color: "#fff",
               }}
               onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
               onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+              disabled={gameOver} // Deshabilitar respuestas después de que termine el juego
             >
               {option}
             </button>
@@ -108,14 +255,17 @@ export const Lenguaje = () => {
         </div>
 
         {/* Puntuación */}
-        <div className="mt-4 text-center">
-          <h4 className="font-weight-bold text-primary">Puntuación: {score}</h4>
+        <div className="mt-1 text-center">
+          <h4 className="font-weight-bold text-light">Puntuación: {score}</h4>
         </div>
 
-        {/* Sonidos de respuesta */}
-        <div className="mt-4 text-center">
-          <h5>¡Buena suerte! Responde correctamente a las preguntas.</h5>
-        </div>
+        {/* Mensaje final */}
+        {gameOver && (
+          <div className="mt-1 text-center">
+            <h2 className="text-light juego-finss">¡Juego Terminado!</h2>
+            <button onClick={restartGame} className="btn btn-success mt-4">Reiniciar juego</button>
+          </div>
+        )}
       </div>
     </div>
   );

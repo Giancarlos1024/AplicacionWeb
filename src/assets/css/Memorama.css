@@ -1,10 +1,21 @@
+.container12{
+  max-width: 100%;
+  height: auto;
+  background-image: url("img/fondos/fondomemorama.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0px 0px;
+  height: 100vh;
+}
+
 .memorama-grid1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     justify-content: center;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
+    
   }
   
   .card1 {
@@ -41,4 +52,37 @@
   .card1.flipped1 .card-back1 {
     transform: rotateY(180deg); /* Esconder el reverso cuando está volteada */
   }
+  .text-success{
+    margin: 0;
+  }
+  .texto-memorama{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .texto-memorama > div{
+    background-color: #e6dde6d7;
+    border-radius: 15px;
+    width: 400px;
+    
+  }
   
+  
+
+@media screen and (max-width:480px) {
+  .memorama-grid1 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 9px;
+    
+  }
+  .container{
+    height: 100vh;
+  }
+  
+  
+  .card1 {
+    width: 70px;
+  }
+  
+}

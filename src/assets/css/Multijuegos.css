@@ -1,0 +1,26 @@
+.container-multijuegos{
+    background-image: url("img/fondos/fondomultijuego.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -300px;
+    height: auto;
+}
+
+.contenedorJuegoMulti{
+    width: 400px;
+    
+}
+.multijuego-div{
+    margin: 0px;
+    /* background-color: yellow; */
+}
+
+@media screen and (max-width:480px) {
+    .container-multijuegos{
+        background-position: 0px 0px;
+        height: auto;
+    }
+    .contenedorJuegoMulti{
+        width: auto;
+    }
+}

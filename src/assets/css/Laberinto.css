@@ -1,7 +1,11 @@
 .laberinto-container {
-    text-align: center;
-    margin: 20px;
-  }
+  background-image: url("img/fondos/fondolaberinto-pro.jpg!w700wp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  height: 100vh;
+    
+}
   
   .maze {
     display: inline-block;
@@ -15,12 +19,12 @@
   .maze-cell {
     width: 50px;
     height: 50px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     box-sizing: border-box;
   }
   
   .wall {
-    background-color: #333;
+    background-color: #3211ecc4;
   }
   
   .goal {
@@ -34,5 +38,22 @@
   button {
     margin: 10px;
     padding: 10px;
+  }
+
+  
+  
+  .restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .restart-button:hover {
+    background-color: #218838;
   }
   

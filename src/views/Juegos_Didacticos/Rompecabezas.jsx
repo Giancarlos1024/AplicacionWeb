@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../assets/css/Rompecabezas.css';
 import { Modal, Button } from 'react-bootstrap';
@@ -6,10 +6,25 @@ import { Modal, Button } from 'react-bootstrap';
 export const Rompecabezas = () => {
   const [pieces, setPieces] = useState([]);
   const [board, setBoard] = useState([]);
-  const [previousBoard, setPreviousBoard] = useState([]); // Almacena el estado anterior del tablero
+  const [previousBoard, setPreviousBoard] = useState([]);
   const [image, setImage] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(120); // Temporizador de 2 minutos
+  const [gameOver, setGameOver] = useState(false);
+
+  const defaultImages = [
+    'img/preguntasJuego/marte.jpg',
+    'img/preguntasJuego/leon.jpg',
+    'img/preguntasJuego/luna.jpg',
+    'img/preguntasJuego/perro.webp',
+    'img/preguntasJuego/sol.jpg',
+    'img/fondos/fondo-rompe2.jpg',
+    'img/fondos/fondoingles.jpg',
+    'img/fondos/fondo2.jpg',
+    'img/fondos/fondoespacio.jpg',
+    'img/preguntasJuego/mitosis.jpg',
+  ]; // Rutas de las imágenes predeterminadas
 
   const audioRef = useRef(new Audio('music/musica_matematicas.mp3'));
 
@@ -17,17 +32,26 @@ export const Rompecabezas = () => {
     const file = e.target.files[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
-      setImage(imageUrl);
-
-      const generatedPieces = generatePuzzlePieces();
-      setPieces(generatedPieces);
-      setBoard(new Array(generatedPieces.length).fill(null));
+      startGame(imageUrl);
     }
   };
 
+  const selectDefaultImage = (imageUrl) => {
+    startGame(imageUrl);
+  };
+
+  const startGame = (imageUrl) => {
+    setImage(imageUrl);
+    const generatedPieces = generatePuzzlePieces();
+    setPieces(generatedPieces);
+    setBoard(new Array(generatedPieces.length).fill(null));
+    setTimeLeft(120);
+    setGameOver(false);
+  };
+
   const generatePuzzlePieces = () => {
-    const rows = 3; // Número de filas
-    const cols = 3; // Número de columnas
+    const rows = 3;
+    const cols = 3;
     const pieces = [];
     let id = 1;
 
@@ -35,13 +59,13 @@ export const Rompecabezas = () => {
       for (let col = 0; col < cols; col++) {
         pieces.push({
           id: id++,
-          xOffset: -col * 100, // Ajustar según el tamaño de la imagen
+          xOffset: -col * 100,
           yOffset: -row * 100,
           placed: false,
         });
       }
     }
-    return pieces.sort(() => Math.random() - 0.5); // Mezclar las piezas
+    return pieces.sort(() => Math.random() - 0.5);
   };
 
   const handleDragStart = (e, id) => {
@@ -53,7 +77,7 @@ export const Rompecabezas = () => {
     const pieceIndex = pieces.findIndex((p) => p.id === pieceId);
 
     if (board[index] === null && !pieces[pieceIndex].placed) {
-      setPreviousBoard([...board]); // Guarda el estado anterior
+      setPreviousBoard([...board]);
 
       const updatedBoard = [...board];
       updatedBoard[index] = pieces[pieceIndex];
@@ -65,17 +89,17 @@ export const Rompecabezas = () => {
       setPieces(updatedPieces);
 
       if (checkWin(updatedBoard)) {
-        setShowModal(true); // Mostrar el modal si el rompecabezas está completo
+        setShowModal(true);
       }
     } else {
-      audioRef.current.play(); // Reproducir sonido de error
+      audioRef.current.play();
     }
   };
 
   const undoMove = () => {
     if (previousBoard.length > 0) {
-      setBoard(previousBoard); // Restaura el tablero anterior
-      setPreviousBoard([]); // Limpia el estado anterior para evitar múltiples "deshacer"
+      setBoard(previousBoard);
+      setPreviousBoard([]);
 
       const updatedPieces = [...pieces].map((piece) => {
         if (previousBoard.every((slot) => slot?.id !== piece.id)) {
@@ -88,7 +112,6 @@ export const Rompecabezas = () => {
   };
 
   const checkWin = (currentBoard) => {
-    // Verificar si las piezas están en el orden correcto
     return (
       currentBoard.length > 0 &&
       currentBoard.every((piece, index) => piece && piece.id === index + 1)
@@ -104,90 +127,120 @@ export const Rompecabezas = () => {
     setIsPlaying(!isPlaying);
   };
 
+  useEffect(() => {
+    if (timeLeft > 0 && !showModal && !gameOver) {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+    if (timeLeft === 0) {
+      setGameOver(true);
+    }
+  }, [timeLeft, showModal, gameOver]);
+
   return (
-    <div className="container text-center mt-5">
-      <h1>Rompecabezas</h1>
-      <div className="mb-4">
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-          className="form-control"
-        />
-      </div>
+    <div className="container-rompecabezas text-center mt-0">
+      
+      <div>
+      <h1 className='text-light'>Rompecabezas</h1>
+        <div className="mb-2 bloque-imagenes-rompecabeza">
+          <div className="mb-4 text-data">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+              className="form-control"
+            />
+          </div>
+          <div className="justify-content-center">
+            {defaultImages.map((img, idx) => (
+              <img
+                key={idx}
+                src={img}
+                alt={`Default ${idx + 1}`}
+                className="default-image mx-1 mb-2 imagenes-defecto"
+                onClick={() => selectDefaultImage(img)}
+              />
+            ))}
+          </div>
+        </div>
 
-      {/* Botón para reproducir/pausar música */}
-      <div className="mb-4">
-        <button className="btn btn-primary" onClick={toggleMusic}>
-          {isPlaying ? 'Pausar Música' : 'Reproducir Música'}
-        </button>
-      </div>
+        <div className='reproductor-movimiento'>
+          <div className='tiempo-rompe'>
+            <h5>Tiempo restante: {timeLeft} segundos</h5>
+          </div>
+          <div className="mb-0">
+            <button className="btn btn-primary" onClick={toggleMusic}>
+              {isPlaying ? 'Pausar Música' : 'Reproducir Música'}
+            </button>
+          </div>
 
-      {/* Botón para deshacer movimiento */}
-      <div className="mb-4">
-        <button
-          className="btn btn-warning"
-          onClick={undoMove}
-          disabled={previousBoard.length === 0} // Deshabilitar si no hay movimientos para deshacer
-        >
-          Deshacer Movimiento
-        </button>
+          <div className="mb-0">
+            <button
+              className="btn btn-warning"
+              onClick={undoMove}
+              disabled={previousBoard.length === 0}
+            >
+              Deshacer Movimiento
+            </button>
+          </div>
+          
+        </div>
       </div>
 
       {image && (
-        <div className="d-flex justify-content-around align-items-start">
-          {/* Imagen de referencia */}
-          <div>
-            <h5>Imagen de Referencia</h5>
-            <img src={image} alt="Imagen de referencia" className="reference-image" />
-          </div>
+        <div className='dsdsds'>
+          <div className="contenedor-rompecabeza-item justify-content-around align-items-start">
+            <div>
+              <h5 className='text-light'>Imagen de Referencia</h5>
+              <img src={image} alt="Imagen de referencia" className="reference-image" />
+              {gameOver && <h3 className="text-light">¡Se acabó el tiempo!</h3>}
+            </div>
 
-          {/* Tablero del rompecabezas */}
-          <div>
-            <div className="puzzle-board">
-              {board.map((slot, index) => (
-                <div
-                  key={index}
-                  className="puzzle-slot"
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={(e) => handleDrop(e, index)}
-                >
-                  {slot && (
+            <div className='cuadros-imagen'>
+              <div className="puzzle-board">
+                {board.map((slot, index) => (
+                  <div
+                    key={index}
+                    className="puzzle-slot"
+                    onDragOver={(e) => e.preventDefault()}
+                    onDrop={(e) => handleDrop(e, index)}
+                  >
+                    {slot && (
+                      <div
+                        className="puzzle-piece"
+                        style={{
+                          backgroundImage: `url('${image}')`,
+                          backgroundPosition: `${slot.xOffset}px ${slot.yOffset}px`,
+                          backgroundSize: '300px 300px',
+                        }}
+                      ></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="pieces-container mt-1">
+                {pieces.map((piece) =>
+                  !piece.placed ? (
                     <div
+                      key={piece.id}
                       className="puzzle-piece"
+                      draggable
+                      onDragStart={(e) => handleDragStart(e, piece.id)}
                       style={{
                         backgroundImage: `url('${image}')`,
-                        backgroundPosition: `${slot.xOffset}px ${slot.yOffset}px`,
+                        backgroundPosition: `${piece.xOffset}px ${piece.yOffset}px`,
                         backgroundSize: '300px 300px',
                       }}
                     ></div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="pieces-container mt-4">
-              {pieces.map((piece) =>
-                !piece.placed ? (
-                  <div
-                    key={piece.id}
-                    className="puzzle-piece"
-                    draggable
-                    onDragStart={(e) => handleDragStart(e, piece.id)}
-                    style={{
-                      backgroundImage: `url('${image}')`,
-                      backgroundPosition: `${piece.xOffset}px ${piece.yOffset}px`,
-                      backgroundSize: '300px 300px',
-                    }}
-                  ></div>
-                ) : null
-              )}
+                  ) : null
+                )}
+              </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Modal de Felicitaciones */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>¡Felicidades!</Modal.Title>

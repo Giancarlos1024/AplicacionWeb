@@ -1,10 +1,12 @@
 .math-game-container {
-    background: linear-gradient(to right, #f3e5f5, #e3f2fd);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  background-image: url("img/fondos/fondo2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
   
   .card {
     border: 2px solid #ffd700;
@@ -25,4 +27,19 @@
   input {
     font-family: "Comic Sans MS", cursive, sans-serif;
   }
-  
+  .dsdsds{
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+.contenedorgeneral-matematicas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contenedor-matematicas-block{
+  background-color: #0e0e0f5d;
+  width: 500px;
+}

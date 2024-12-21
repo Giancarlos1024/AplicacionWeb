@@ -1,9 +1,9 @@
 .puzzle-board {
     display: grid;
     grid-template-columns: repeat(3, 100px);
-    grid-gap: 5px;
+    grid-gap: 1px;
     margin: 0 auto;
-    width: 320px;
+    width: auto;
     border: 2px solid #ccc;
   }
   
@@ -33,3 +33,110 @@
 .reference-image{
     width: 250px;
 }  
+
+.imagenes-defecto{
+  width: 110px;
+  height: 100px;
+}
+
+
+
+.container-rompecabezas{
+  background-image: url("img/fondos/fondo-rompe.jpg");
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.text-data{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-data > input{
+  margin-top: 10px;
+  width: 400px;
+
+}
+.bloque-imagenes-rompecabeza{
+  /* background-color: chartreuse; */
+  display: flex;
+  flex-direction: column;
+}
+
+.dsdsds{
+  /* background-color: blueviolet; */
+}
+.reproductor-movimiento{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: olivedrab; */
+  padding: 0px;
+  margin: 0px;
+}
+.tiempo-rompe{
+  color: #fff;
+}
+
+
+
+.contenedor-rompecabeza-item{
+  /* background-color: orange; */
+  display: flex;
+  flex-direction: row;
+}
+.contenedor-rompecabeza-item > div{
+  /* background-color: rgb(22, 108, 189); */
+  margin: 5px;
+}
+.cuadros-imagen{
+  /* background-color: aqua; */
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.cuadros-imagen > div{
+  /* background-color: pink; */
+  
+}
+
+@media screen and (max-width:480px) {
+  .reproductor-movimiento{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: olivedrab; */
+    padding: 0px;
+    margin: 0px;
+  }
+  .contenedor-rompecabeza-item{
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cuadros-imagen{
+    /* background-color: aqua; */
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+  .text-data > input{
+    margin-top: 10px;
+    width: 350px;
+  
+  }
+  .cuadros-imagen > div{
+    /* background-color: pink; */
+    margin-top: 0px;
+  }
+  
+.container-rompecabezas{
+  
+  height: auto;
+}
+}

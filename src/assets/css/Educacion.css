@@ -1,0 +1,12 @@
+.contenedor-educacion{
+    background-image: url("img/fondos/fondoeducacion.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.titulo-educacion{
+    color: rgb(236, 203, 13);
+}
+.descripcion-educacion{
+    color: #fff;
+}

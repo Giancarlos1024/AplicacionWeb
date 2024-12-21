@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import '../../assets/css/Educacion.css';
 
 export const Educacion = () => {
   const canvasRef = useRef(null);
@@ -104,16 +105,17 @@ export const Educacion = () => {
   };
 
   return (
-    <div className="container py-5" style={{ backgroundColor: "#f0f8ff" }}>
-      <h1 className="text-center text-primary mb-4">🎨 Crea tu propio dibujo</h1>
+    <div className="contenedor-educacion">
+      <div className="container py-5">
+      <h1 className="text-center  mb-4 titulo-educacion">🎨 Crea tu propio dibujo</h1>
 
       {/* Instrucciones */}
-      <div className="text-center mb-4">
+      <div className="text-center mb-4 descripcion-educacion">
         <h4>¡Usa las herramientas para dibujar y crear tu obra de arte!</h4>
       </div>
 
       {/* Controles para seleccionar color y tamaño del pincel */}
-      <div className="text-center mb-4">
+      <div className="text-center mb-4 descripcion-educacion">
         <h4>Elige el color:</h4>
         <input
           type="color"
@@ -133,18 +135,18 @@ export const Educacion = () => {
       </div>
 
       {/* Herramientas de dibujo */}
-      <div className="text-center mb-4">
+      <div className="text-center mb-4 ">
         <button
           onClick={() => setTool("brush")}
           style={buttonStyle("brush")}
-          className="btn mx-2"
+          className="btn mx-2 descripcion-educacion"
         >
           <span role="img" aria-label="pincel">🖌️</span> Pincel
         </button>
         <button
           onClick={() => setTool("pencil")}
           style={buttonStyle("pencil")}
-          className="btn mx-2"
+          className="btn mx-2 descripcion-educacion"
         >
           <span role="img" aria-label="lapiz">✏️</span> Lápiz
         </button>
@@ -189,6 +191,7 @@ export const Educacion = () => {
         <source src="music/musica_matematicas.mp3" type="audio/mp3" />
         Tu navegador no soporta el elemento de audio.
       </audio>
+    </div>
     </div>
   );
 };

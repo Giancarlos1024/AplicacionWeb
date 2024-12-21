@@ -1,0 +1,90 @@
+
+.contenedorGlobalCiencia{
+    background-image: url("img/fondos/fondo2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -100px;
+    
+    height: 100vh;
+}
+
+.conteiner-ff{
+    background-color: yellow;
+}
+.contenedorDatos{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor-general{
+    /* background-color: teal; */
+    width: auto;
+}
+#tituloJuego{
+    color: #fff;
+}
+#tiempo-juego{
+    color: #5cca13;
+    font-weight: bold;
+}
+#texto-informacion{
+   
+    color: #fff;
+}
+
+#preguntas-ciencia{
+    margin-top: 5px;
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+#botton-Verificar{
+    font-size: 16px;
+    width: 350px;
+    margin-top: 10px;
+}
+#juego-terminado-texto{
+    color: #fff;
+}
+
+
+@media screen and (max-width:480px) {
+    #img-preguntas{
+        max-width: 50px;
+        max-height: 50px;
+        background-color: orange;
+        padding: 0px;
+        margin: 0px -10px;
+        
+    }
+    #tituloJuego{
+        font-size: 35px;
+    }
+    #preguntas-ciencia{
+        margin-top: 5px;
+        font-size: 25px;
+    }
+    #texto-informacion{
+        font-size: 20px;
+        
+    }
+    .contenedor-img > p{
+       font-size: 10px;
+       
+    }
+    #botton-Verificar{
+        font-size: 14px;
+        width: 200px;
+    }
+    .contenedorGlobalCiencia{
+        background-image: url("img/fondo2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0px 0px;
+        
+        height: 100vh;
+    }
+}
