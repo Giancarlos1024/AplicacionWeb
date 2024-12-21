@@ -1,17 +1,8 @@
 {
-    "redirects": [
-      {
-        "source": "/:path*",
-        "destination": "/index.html",
-        "permanent": false,
-        "has": [
-          {
-            "type": "header",
-            "key": "x-vercel-static",
-            "value": "false"
-          }
-        ]
-      }
-    ]
-  }
-  
+  "rewrites":[
+    {
+      "source":"/(.*)",
+      "destination":"/"
+    }
+  ]
+}
