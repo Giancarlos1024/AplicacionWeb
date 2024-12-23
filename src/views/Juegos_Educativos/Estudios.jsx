@@ -318,7 +318,7 @@ export const Estudios = () => {
     <div className="container py-2 contenedor-estudios-fondo" id="contenedor-estudios-g">
       <div className="p-1">
         <div className="texto-titulo-estudios">
-          <h1 className="text-center text-light font-weight-bold  animate-fadeIn">
+          <h1 className="text-center font-weight-bold  animate-fadeIn">
             🌎 Juego de Estudios Sociales
           </h1>
         </div>
@@ -342,7 +342,7 @@ export const Estudios = () => {
         
         {/* Pregunta */}
         <div className="question-container animate-slideInUp">
-          <h2 className="text-center text-light mb-4">{questions[questionIndex].question}</h2>
+          <h2 className="text-center preguntas-est mb-4">{questions[questionIndex].question}</h2>
         </div>
 
         {/* Opciones */}
@@ -372,7 +372,7 @@ export const Estudios = () => {
 
         {/* Puntuación */}
         <div className="mt-4 text-center">
-          <h4 className="font-weight-bold text-light">Puntuación: {score}</h4>
+          <h4 className="font-weight-bold preguntas-est">Puntuación: {score}</h4>
         </div>
       </div>
 

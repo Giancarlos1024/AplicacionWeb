@@ -1,5 +1,5 @@
 .math-game-container {
-  background-image: url("../../img/fondos/fondo2.jpg");
+  background-image: url("../../img/FondoProfesionales/f15.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -11,9 +11,16 @@
   .card {
     border: 2px solid #ffd700;
   }
+  .titulo-mate{
+    color: #fff;
+    text-shadow: 1px 1px 10px #161616;
+  }
   
-  .text-info {
-    color: #ff4500 !important;
+  #text-info {
+    color: #fff !important;
+    text-shadow: 1px 1px 10px #161616;
+    font-size: 1.8rem;
+    font-weight: bold
   }
   
   .btn {

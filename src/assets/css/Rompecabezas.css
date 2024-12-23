@@ -42,7 +42,9 @@
 
 
 .container-rompecabezas{
-  background-image: url("../../img/fondos/fondo-rompe.jpg");
+  background-image: url("../../img/FondoProfesionales/f4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -63,9 +65,6 @@
   flex-direction: column;
 }
 
-.dsdsds{
-  /* background-color: blueviolet; */
-}
 .reproductor-movimiento{
   display: flex;
   justify-content: center;
@@ -100,6 +99,13 @@
   /* background-color: pink; */
   
 }
+
+.titulo-r{
+  color: #fff;
+  padding: 5px 0px;
+  background-color: rgba(10, 10, 10, 0.37);
+}
+
 
 @media screen and (max-width:480px) {
   .reproductor-movimiento{

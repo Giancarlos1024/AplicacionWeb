@@ -1,6 +1,28 @@
 .container-sonidos{
-    background-image: url("../../img/fondos/fondoespacio.jpg");
+    background-image: url("../../img/FondoProfesionales/f10.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+}
+
+#pretitulosonido{
+    font-size: 45px;
+}
+.textosonidos{
+    color: #fff;
+    text-shadow: 1px 1px 5px #161515f3;
+}
+.pre-texto{
+    font-size: 30px;
+}
+
+@media screen and (max-width:480px) {
+    
+    .pre-texto{
+        font-size: 25px;
+    }
+    #pretitulosonido{
+        font-size: 35px;
+    }
+    
 }

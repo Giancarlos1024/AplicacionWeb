@@ -1,7 +1,7 @@
 .container12{
   max-width: 100%;
   height: auto;
-  background-image: url("../../img/fondos/fondomemorama.jpg");
+  background-image: url("../../img/FondoProfesionales/f2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0px 0px;
@@ -67,7 +67,10 @@
     width: 400px;
     
   }
-  
+  .titulo-memo{
+    color: #fff;
+    text-shadow: 1px 1px 10px #0a0a0a;
+  }
   
 
 @media screen and (max-width:480px) {

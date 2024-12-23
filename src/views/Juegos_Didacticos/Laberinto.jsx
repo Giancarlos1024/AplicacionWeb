@@ -292,10 +292,10 @@ useEffect(() => {
 
   return (
     <div className="laberinto-container">
-      <div>
-        <h1 className='text-light'>🚀Laberinto Multinivel</h1>
-        <p className='text-light'>Nivel: {level}</p>
-        <p className='text-light'>Tiempo: {time} segundos</p>
+      <div className='laberinto-h1'>
+        <h1 className='textlaberinto2'>🚀Laberinto Multinivel</h1>
+        <p className='textlaberinto'>Nivel: {level}</p>
+        <p className='textlaberinto'>Tiempo: {time} segundos</p>
         {/* <button onClick={startGame}>Iniciar</button>
       <button onClick={stopGame}>Pausar</button> */}
         <button className="btn btn-primary" onClick={toggleMusic}>

@@ -367,7 +367,7 @@ export const Sonidos_animales = () => {
 
   return (
     <div className="container-sonidos mt-0 text-center">
-      <h1 className="display-4 text-light mb-4">🦻Juego de Sonidos de Animales</h1>
+      <h1 className="textosonidos mb-4" id='pretitulosonido'>🦻Juego de Sonidos de Animales</h1>
 
       {/* Botón para controlar la música de fondo */}
       <button
@@ -378,7 +378,7 @@ export const Sonidos_animales = () => {
       </button>
 
       {/* Mostrar el cronómetro */}
-      <h3 className='text-light'>{gameOver || showScore ? 'Tiempo Finalizado' : `Tiempo: ${timeLeft}s`}</h3>
+      <h3 className='textosonidos'>{gameOver || showScore ? 'Tiempo Finalizado' : `Tiempo: ${timeLeft}s`}</h3>
 
       {showScore ? (
         <div className="alert alert-info mt-4 shadow-lg rounded">
@@ -392,10 +392,10 @@ export const Sonidos_animales = () => {
       ) : (
         <div className="mt-4">
           <div className="mb-4">
-            <h4 className='text-light'>
+            <h4 className='textosonidos'>
               Pregunta {currentQuestion + 1} de {questions.length}
             </h4>
-            <p className='text-light'>{questions[currentQuestion].question}</p>
+            <p className='textosonidos pre-texto'>{questions[currentQuestion].question}</p>
           </div>
 
           <div className=" justify-content-center">
@@ -405,7 +405,8 @@ export const Sonidos_animales = () => {
                 className="btn btn-outline-primary col-5 m-8 shadow-sm text-light"
                 style={{
                   background:"rgb(9, 12, 230)",
-                  width:"200px"
+                  width:"200px",
+                  margin:"10px",
                 }}
                 onClick={() => handleAnswerOptionClick(answer.isCorrect, answer.sound)}
               >

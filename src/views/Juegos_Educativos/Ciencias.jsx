@@ -441,7 +441,7 @@ export const Ciencias = () => {
         </div>
       ) : (
         <div className="text-center">
-          <Typography id="juego-terminado-texto" variant="h4" color="success" style={{ fontFamily: "Comic Sans MS", fontWeight: "bold" }}>
+          <Typography id="juego-terminado-texto" variant="h4" style={{ fontFamily: "Comic Sans MS", fontWeight: "bold" }}>
             {feedback}
           </Typography>
           <Button onClick={handleRestart} variant="contained" color="primary" style={{ marginTop: "1rem", padding: "10px 20px", fontFamily: "Comic Sans MS" }}>

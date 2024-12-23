@@ -184,11 +184,11 @@ export const Memorama = () => {
       <audio ref={incorrectSoundRef} src="music/incorrecto.mp3" />
 
       <div className="text-center mb-0">
-        <h1 className="text-light">🧠 Juego de Memorama</h1>
+        <h1 className="titulo-memo">🧠 Juego de Memorama</h1>
         <div className="texto-memorama">
           <div className="text-center mt-0">
-          <h4 className="text-info">Movimientos: {moves}</h4>
-          <h4 className="text-success">
+          <h4 className="titulo-memo">Movimientos: {moves}</h4>
+          <h4 className="titulo-memo">
             Parejas encontradas: {matchedCards.length / 2} /{" "}
             {levels[level - 1].pairs}
           </h4>

@@ -1,5 +1,5 @@
 .contenedor-educacion{
-    background-image: url("../../img/fondos/fondoeducacion.jpg");
+    background-image: url("../../img/FondoProfesionales/f7.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     /* background-color: yellow; */
@@ -7,16 +7,28 @@
 }
 
 .titulo-educacion{
-    color: rgb(236, 203, 13);
+    color: rgb(240, 224, 9);
+    text-shadow: 1px 1px 1px #0c0b0b;
+  
 }
 .descripcion-educacion{
-    color: #fff;
+    color: #f3edf1;
+    text-shadow: 1px 1px 1px #0c0b0b;
 }
 
 @media screen and (max-width:480px) {
     #contenedor-educacion-g{
         /* background-color: olive; */
         height: 100%;
+    }
+    .titulo-educacion{
+        color: rgb(240, 224, 9);
+        text-shadow: 1px 1px 1px #0c0b0b;
+      
+    }
+    .descripcion-educacion{
+        color: #f1e7e7f5;
+        text-shadow: 1px 1px 1px #080808;
     }
     
 }

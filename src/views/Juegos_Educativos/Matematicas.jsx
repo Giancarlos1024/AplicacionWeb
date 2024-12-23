@@ -182,7 +182,7 @@ export const Matematicas = () => {
   return (
     <div className="math-game-container" style={{minHeight: "100vh" }}>
       <div className="container ">
-        <h1 className="text-center text-light fw-bold">🧮 Juego de Matemáticas</h1>
+        <h1 className="text-center titulo-mate fw-bold">🧮 Juego de Matemáticas</h1>
         <div className="dsdsds">
          <div>
           <button
@@ -199,15 +199,15 @@ export const Matematicas = () => {
           </div>
         </div>
         <div className="text-center mt-0">
-          <h3 className="fw-bold text-light">
+          <h3 className="fw-bold titulo-mate">
             Puntuación: <span className="badge bg-success" style={{ fontSize: "1.5rem" }}>{score}</span>
           </h3>
         </div>
-        <h2 className="text-center fw-bold" style={{ color: "#ff6347" }}>¡Responde esta pregunta!</h2>
+        <h2 className="text-center titulo-mate fw-bold">¡Responde esta pregunta!</h2>
         <div className="contenedorgeneral-matematicas">
           <div className="p-1 rounded contenedor-matematicas-block">
             
-            <h3 className="text-center text-info display-4 my-4">{question}</h3>
+            <h3 className="text-center display-4 my-2" id="text-info">{question}</h3>
             <form onSubmit={handleAnswer} className="mt-0">
               <div className="form-group">
                 <label htmlFor="playerAnswer" className="form-label text-light fs-4">Tu respuesta:</label>
@@ -221,7 +221,7 @@ export const Matematicas = () => {
                     placeholder="Escribe aquí"
                     required
                     disabled={gameOver} // Deshabilita el input si el juego terminó
-                    style={{ fontSize: "1.5rem" }}
+                    style={{ fontSize: "1.4rem" }}
                   />
                 ) : (
                   <input

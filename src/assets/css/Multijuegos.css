@@ -1,8 +1,8 @@
 .container-multijuegos{
-    background-image: url("../../img/fondos/fondomultijuego.jpg");
+    background-image: url("../../img/FondoProfesionales/f6.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0px -300px;
+    background-position: 0px 0px;
     height: auto;
 }
 
@@ -14,6 +14,11 @@
     margin: 0px;
     /* background-color: yellow; */
 }
+.textmulti{
+    color: #ffffff;
+    text-shadow: 1px 1px 5px #0a0a0af3;
+}
+
 
 @media screen and (max-width:480px) {
     .container-multijuegos{

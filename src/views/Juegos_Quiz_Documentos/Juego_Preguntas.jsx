@@ -340,7 +340,7 @@ const Juego_Preguntas = () => {
 
   return (
     <div className="container-preguntas mt-0 text-center">
-      <h1 className="display-4 text-light mb-4">🙈Juego de Preguntas</h1>
+      <h1 className="display-4  mb-4">🙈Juego de Preguntas</h1>
 
       <button
         className="btn btn-secondary mb-1"
@@ -389,13 +389,15 @@ const Juego_Preguntas = () => {
             )}
           </div>
 
-          <div className="row justify-content-center ">
+          <div className="justify-content-center ">
             {questions[currentQuestion].answers.map((answer, index) => (
               <button
                 key={index}
                 className="btn btn-outline-primary col-5 shadow-sm text-light"
                 style={{
-                  background:"rgba(17, 124, 230, 0.86)"
+                  background:"rgba(17, 124, 230, 0.86)",
+                  width:"200px",
+                  margin:"10px"
                 }}
                 onClick={() => handleAnswerOptionClick(answer.isCorrect)}
               >

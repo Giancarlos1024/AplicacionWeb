@@ -22,7 +22,7 @@ const Multijuegos = () => {
     <div className="container-multijuegos mt-0 text-center">
       <h1 className="display-6 text-primary mb-2 font-weight-bold">MULTIJUEGOS</h1>
       <div>
-        <h4 className="mb-4 text-light">Selecciona un juego para jugar</h4>
+        <h4 className="mb-4 textmulti">Selecciona un juego para jugar</h4>
         <div className="row justify-content-center multijuego-div">
           {Object.keys(gameImages).map((gameKey) => (
             <div key={gameKey} className="col-md-4 game-button-container mb-4">

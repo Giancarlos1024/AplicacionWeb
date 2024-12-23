@@ -1,10 +1,12 @@
 .container-preguntas{
-    background-image: url("../../img/fondos/fondo_preguntas.jpg");
+    background-image: url("../../img/FondoProfesionales/18.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     background-color: rgb(230, 233, 236);
 }
+
+
 .fondo-pregunta-juego{
     display: flex;
     justify-content: center;
@@ -17,4 +19,17 @@
     border-radius: 15px;
     padding: 20px;
 
+}
+
+.container-preguntas > h1{
+    color: #fff;
+    text-shadow: 1px 1px 10px #000000fd;
+}
+
+@media screen and (max-width:480px) {
+    .container-preguntas{
+    
+        height: auto;
+    
+    }
 }

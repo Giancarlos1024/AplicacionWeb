@@ -141,7 +141,7 @@ export const Rompecabezas = () => {
     <div className="container-rompecabezas text-center mt-0">
       
       <div>
-      <h1 className='text-light'>Rompecabezas</h1>
+      <h1 className='titulo-r'>Rompecabezas</h1>
         <div className="mb-2 bloque-imagenes-rompecabeza">
           <div className="mb-4 text-data">
             <input
