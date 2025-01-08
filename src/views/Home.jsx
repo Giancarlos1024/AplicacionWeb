@@ -77,7 +77,7 @@ export const Home = () => {
               </p>
             </div>
             <div className='subcontenedor-memorama'>
-              <img src="img/memorama_vista.png" alt="memorama vista" />
+              <img src="img/memoramaF.png" alt="memorama vista" />
               <div className='contenedor-check'>
                 <div>
                   <img src="img/check.png" alt="check" />
