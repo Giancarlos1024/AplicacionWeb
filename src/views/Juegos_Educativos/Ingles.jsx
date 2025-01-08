@@ -39,6 +39,16 @@ const Ingles = () => {
     { question: '¿Qué significa "cold"?', options: ['Frío', 'Caliente', 'Seco'], correctAnswer: 'Frío' },
     { question: '¿Qué significa "fast"?', options: ['Rápido', 'Lento', 'Pesado'], correctAnswer: 'Rápido' },
     { question: '¿Cómo se escribe "felicidad" en inglés?', options: ['Happiness', 'Sadness', 'Anger'], correctAnswer: 'Happiness' },
+    { question: '¿Cómo se escribe "escuela" en inglés?', options: ['School', 'Class', 'Teacher'], correctAnswer: 'School' },
+    { question: '¿Qué significa "water"?', options: ['Agua', 'Tierra', 'Fuego'], correctAnswer: 'Agua' },
+    { question: '¿Cómo se escribe "amarillo" en inglés?', options: ['Yellow', 'Green', 'Blue'], correctAnswer: 'Yellow' },
+    { question: '¿Qué significa "happy"?', options: ['Feliz', 'Triste', 'Enojado'], correctAnswer: 'Feliz' },
+    { question: '¿Cómo se escribe "árbol" en inglés?', options: ['Tree', 'Bush', 'Leaf'], correctAnswer: 'Tree' },
+    { question: '¿Cómo se escribe "familia" en inglés?', options: ['Family', 'Home', 'People'], correctAnswer: 'Family' },
+    { question: '¿Qué significa "car"?', options: ['Coche', 'Bicicleta', 'Avión'], correctAnswer: 'Coche' },
+    { question: '¿Cómo escribe "hermano" en inglés?', options: ['Brother', 'Sister', 'Friend'], correctAnswer: 'Brother' },
+    { question: '¿Qué significa "green"?', options: ['Verde', 'Rojo', 'Amarillo'], correctAnswer: 'Verde' },
+    { question: '¿Cómo se escribe "luna" en inglés?', options: ['Moon', 'Star', 'Sun'], correctAnswer: 'Moon' },
   ];
   
   useEffect(() => {

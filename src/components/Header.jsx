@@ -1,12 +1,13 @@
 // Header.js
 import React, { useState } from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate, NavLink, useLocation } from 'react-router-dom';
 import '../assets/css/Header.css';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false); // Estado para el menú
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
+  const location = useLocation(); // Obtén la ubicación actual
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -18,7 +19,6 @@ const Header = () => {
 
   const handleSearch = () => {
     if (searchQuery.trim() !== '') {
-      // Redirigir según el valor del buscador
       switch (searchQuery.toLowerCase()) {
         case 'ciencias':
           navigate('/ciencias');
@@ -38,9 +38,6 @@ const Header = () => {
         case 'matematicas':
           navigate('/matematicas');
           break;
-        case 'memorama':
-          navigate('/memorama');
-          break;
         case 'sopaletras':
           navigate('/sopaletras');
           break;
@@ -59,11 +56,15 @@ const Header = () => {
         case 'multijuegos':
           navigate('/multijuegos');
           break;
+        case 'memorama':
+          navigate('/memorama');
+          break;
         default:
           alert('Juego no encontrado');
       }
     }
-  };
+};
+
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
@@ -71,34 +72,45 @@ const Header = () => {
     }
   };
 
+  // Detectar si estás en la página principal o en un juego
+  const isHomePage = location.pathname === '/';
+
   return (
     <nav className="Nav-header">
       <div className="logo-principal">
-        <img src="img/logo_sitioweb.png" alt="logo" />
+        <img src="img/LogoE.png" alt="logo" />
         <NavLink to="/" className="titulo-header-principal">
-          <span className="titulo-header">Aplicación</span> Web Didáctico
+          <span className="titulo-header">ACADEMIA REPÚBLICA DEL ECUADOR</span>
         </NavLink>
       </div>
       <button className="hamburger-menu" onClick={toggleMenu}>
         ☰
       </button>
       <div className={`enlaces-pagina ${menuOpen ? 'open' : ''}`}>
-        <a href="#juegos-educativos">Juegos Educativos</a>
-        <a href="#juegos-memoria">Juegos de Memoria</a>
-        <a href="#juegos-didacticos-cognitivos">Juegos Didacticos Cognitivos</a>
-        <a href="#juegos-preguntas">Juegos de Preguntas</a>
+        {isHomePage ? (
+          <>
+            <a href="#juegos-educativos">Juegos Educativos</a>
+            <a href="#juegos-memoria">Juegos de Memoria</a>
+            <a href="#juegos-didacticos-cognitivos">Juegos Didácticos Cognitivos</a>
+            <a href="#juegos-preguntas">Juegos de Preguntas</a>
+          </>
+        ) : (
+          <>
+            <NavLink to="/">Volver al Inicio</NavLink>
+            <NavLink to="/multijuegos">Otros Juegos</NavLink>
+          </>
+        )}
         <div className="Nav-buscador">
-        <img src="img/buscador.png" alt="buscador" />
-        <input
-          type="text"
-          placeholder="Buscar"
-          value={searchQuery}
-          onChange={handleSearchChange}
-          onKeyPress={handleKeyPress}
-        />
+          <img src="img/buscador.png" alt="buscador" />
+          <input
+            type="text"
+            placeholder="Buscar"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            onKeyPress={handleKeyPress}
+          />
+        </div>
       </div>
-      </div>
-      
     </nav>
   );
 };

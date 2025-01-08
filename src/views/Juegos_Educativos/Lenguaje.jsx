@@ -40,7 +40,7 @@ export const Lenguaje = () => {
       options: ['Adjetivo', 'Verbo', 'Adverbio'],
       correctAnswer: 'Adverbio',
     },
-    // Nuevas preguntas
+   
     {
       question: '¿Qué es un adjetivo?',
       options: ['Un verbo', 'Una acción', 'Una palabra que describe un sustantivo'],
@@ -140,6 +140,56 @@ export const Lenguaje = () => {
       question: '¿Cómo se llama la palabra que modifica a un verbo, adjetivo o a otro adverbio?',
       options: ['Conjunción', 'Adverbio', 'Sustantivo'],
       correctAnswer: 'Adverbio',
+    },
+    {
+      question: '¿Qué tipo de palabra es "feliz"?',
+      options: ['Sustantivo', 'Adjetivo', 'Verbo'],
+      correctAnswer: 'Adjetivo',
+    },
+    {
+      question: '¿Cuál es el pronombre en la oración "Juan y María van al cine"?',
+      options: ['Juan', 'María', 'Ellos'],
+      correctAnswer: 'Ellos',
+    },
+    {
+      question: '¿Qué es una oración simple?',
+      options: ['Una oración con un solo verbo', 'Una oración con más de un verbo', 'Una oración que no tiene verbo'],
+      correctAnswer: 'Una oración con un solo verbo',
+    },
+    {
+      question: '¿Qué palabra es un sustantivo colectivo?',
+      options: ['Equipo', 'Correr', 'Feliz'],
+      correctAnswer: 'Equipo',
+    },
+    {
+      question: '¿Qué es un adverbio de modo?',
+      options: ['Una palabra que indica lugar', 'Una palabra que describe cómo se realiza una acción', 'Una palabra que indica tiempo'],
+      correctAnswer: 'Una palabra que describe cómo se realiza una acción',
+    },
+    {
+      question: '¿Cómo se llama el verbo en la oración "Carlos canta una canción"?',
+      options: ['Carlos', 'Canta', 'Canción'],
+      correctAnswer: 'Canta',
+    },
+    {
+      question: '¿Qué tipo de palabra es "rápido"?',
+      options: ['Sustantivo', 'Verbo', 'Adjetivo'],
+      correctAnswer: 'Adjetivo',
+    },
+    {
+      question: '¿Cuál de las siguientes palabras es un pronombre?',
+      options: ['Ella', 'Rápidamente', 'Mesa'],
+      correctAnswer: 'Ella',
+    },
+    {
+      question: '¿Qué es un sustantivo concreto?',
+      options: ['Un sustantivo que no se puede tocar', 'Un sustantivo que se puede tocar', 'Un sustantivo que describe una acción'],
+      correctAnswer: 'Un sustantivo que se puede tocar',
+    },
+    {
+      question: '¿Qué significa la palabra "antónimo"?',
+      options: ['Palabra que significa lo mismo que otra', 'Palabra que significa lo contrario de otra', 'Palabra que describe una acción'],
+      correctAnswer: 'Palabra que significa lo contrario de otra',
     },
   ];
 

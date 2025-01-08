@@ -6,17 +6,17 @@ import { Footer } from '../components/Footer';
 export const Home = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <section className="FondoCarrusel-Banner">
         <div>
-          <h1><span className="titulo">Aplicación</span> Web Didactica</h1>
-          <p>
+          <h1>Aplicación Web Didactica</h1>
+          <p className='parrafoHome' >
             Es una herramienta educativa diseñada para facilitar el aprendizaje
             mediante la interacción activa del estudiante, utilizando enfoques 
             basados en los principios de la psicología cognitiva. 
             Estas aplicaciones buscan potenciar habilidades como la memoria, la 
             atención, el razonamiento, y la resolución de problemas, adaptándose 
-            a las necesidades y niveles del usuario.
+            a las necesidades y niveles del estudiante.
           </p>
         </div>
       </section>
@@ -68,12 +68,14 @@ export const Home = () => {
             <img src="img/memorama.png" alt="memorama" />
           </div>
           <div className='informacion-memorama'>
-            <h4>Memorama</h4>
-            <p>Es una actividad lúdica diseñada para estimular y desarrollar la capacidad de recordar 
-              información, como imágenes, palabras, sonidos o secuencias. Estos juegos suelen implicar 
-              la asociación de elementos relacionados, la retención de detalles en un periodo corto o 
-              largo de tiempo, y la recuperación de información en el momento adecuado.
-            </p>
+            <div className='MemoramaConteiner'>
+              <h4>Memorama</h4>
+              <p>Es una actividad lúdica diseñada para estimular y desarrollar la capacidad de recordar 
+                información, como imágenes, palabras, sonidos o secuencias. Estos juegos suelen implicar 
+                la asociación de elementos relacionados, la retención de detalles en un periodo corto o 
+                largo de tiempo, y la recuperación de información en el momento adecuado.
+              </p>
+            </div>
             <div className='subcontenedor-memorama'>
               <img src="img/memorama_vista.png" alt="memorama vista" />
               <div className='contenedor-check'>
@@ -143,7 +145,7 @@ export const Home = () => {
         </div>
 
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

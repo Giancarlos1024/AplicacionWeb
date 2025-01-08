@@ -1,31 +1,37 @@
 .FondoCarrusel-Banner{
-    background-image: url("../../img/fondos/fondoCarrusel.png");
+    background-image: url("../../img/fondos/FondoC2.png");
     height: 739px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: -60px 0px;
 }
 .FondoCarrusel-Banner > div{
     /* background-color: orange; */
     position: absolute;
-    bottom: 40px;
-    left: 180px;
+    bottom: 100px;
+    left: 125px;
     height: auto;
     width: 600px;
 }
 .FondoCarrusel-Banner > div > h1{
-    color: #2185D7;
+    color: #6de708;
     font-size: 54px;
     margin-bottom: 20px;
+    /* background-color: #D19E66; */
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px rgb(247, 247, 7);
 }
 .titulo{
     color: #fff;
 }
 
 .FondoCarrusel-Banner > div > p{
-    font-size: 20px;
+    font-size: 15px;
     text-align: justify;
     line-height: 1.4;
-    color: #ffffffe7;
+    color: #0f0f0fe7;
+    text-transform: uppercase;
     
 }
 
@@ -41,22 +47,27 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    
 }
 
 .contenedor-titulos > h1{
-   color: #2185D7;
-   border-bottom: 2px solid #D19E66;
+   color: #24e00bfb;
+   border-bottom: 2px solid #f7260a;
    width: auto;
    font-size: 32px;
+   text-shadow: 2px 2px 2px rgb(5, 5, 5);
    /* background-color: aqua; */
   }
 .seccion-juego{
-    color: #D19E66;
+    color: #24e00bfb;
 }
 
 .contenedor-juegos-educativos{
+    background-image: url("../../img/fondos/fondoJuegosGeneral.jpg");
     padding: 80px;
     display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -72,13 +83,14 @@
 .juego-div > p{
     padding: 25px 0px;
     font-size: 20px;
+    text-shadow: 1px 1px 1px rgb(5, 5, 5);
 }
 .titulo-juego{
-    color: #D19E66;
+    color: #24e00bfb;
 }
 .button-jugar-educativos{
     padding: 12px 30px;
-    background-color: #4617ED;
+    background-color: #148605fb;
     border-radius: 5px;
     color: #fff;
     text-decoration: none;
@@ -90,7 +102,7 @@
 /*JUEGOS DE MEMORIA*/
 
 .contenedor-memorama{
-    /* background-color: orange; */
+    background-image: url("../../img/fondos/fondoJuegosGeneral.jpg");
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -102,13 +114,16 @@
 }
 .informacion-memorama{
     padding-left: 30px;
+    height: 450px;
     /* background-color: #4617ED; */
+    
    
 }
 .informacion-memorama > h4{
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-size: 36px;
     color: #D19E66;
+    
 }
 .informacion-memorama > p{
     margin-bottom: 30px;
@@ -153,18 +168,19 @@
 }
 
 
+
 @media screen and (max-width:480px) {
     
     .FondoCarrusel-Banner{
-        background-position: -163px 0px;
+        background-position: -400px 0px;
     }
     .FondoCarrusel-Banner > div > h1{
         font-size: 47px;
     }
     .FondoCarrusel-Banner > div{
         position: absolute;
-        bottom: -30px;
-        left: 13px;
+        bottom: 60px;
+        left: 20px;
         height: auto;
         width: 334px;
     }
@@ -216,11 +232,15 @@
         padding: 10px 0px;
     }
     .contenedor-titulos > h1 {
-        font-size: 20px;
+        font-size: 18px;
         text-align: center;
     }
     .button-memorama{
         margin-left: 50px;
+    }
+    #juegos-didacticos-cognitivos{
+        /* background-color: #ccee0b; */
+        margin-top: 391px;
     }
 }
 

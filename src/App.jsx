@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes, Route } from "react-router"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Home } from "./views/Home"
 import { Ciencias } from "./views/Juegos_Educativos/Ciencias"
 import { Educacion } from "./views/Juegos_Educativos/Educacion"
@@ -14,12 +14,15 @@ import Juego_Preguntas from "./views/Juegos_Quiz_Documentos/Juego_Preguntas"
 import { Sonidos_animales } from "./views/Juegos_Quiz_Documentos/Sonidos_animales"
 import Multijuegos from "./views/Juegos_Quiz_Documentos/Multijuegos"
 import { Memorama } from "./views/Juegos_Memoria/Memorama"
+import Header from "./components/Header"
+import { Footer } from "./components/Footer"
 
 function App() {
 
 
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ciencias" element={<Ciencias />} />
@@ -36,6 +39,7 @@ function App() {
         <Route path="/multijuegos" element={<Multijuegos />} />
         <Route path="/memorama" element={<Memorama />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }

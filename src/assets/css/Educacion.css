@@ -4,6 +4,7 @@
     background-size: cover;
     /* background-color: yellow; */
     height: 100%;
+    opacity: 0.9; /* Ajusta la transparencia aquí */
 }
 
 .titulo-educacion{

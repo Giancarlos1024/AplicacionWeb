@@ -297,7 +297,107 @@ const Juego_Preguntas = () => {
         { text: 'Una luna', isCorrect: false },
         { text: 'Un cometa', isCorrect: false },
       ],
-    }
+    },
+    {
+      question: '¿En qué continente se encuentra Egipto?',
+      image: 'img/preguntasJuego/egipto.jpg',
+      answers: [
+        { text: 'Asia', isCorrect: false },
+        { text: 'África', isCorrect: true },
+        { text: 'Europa', isCorrect: false },
+        { text: 'América', isCorrect: false },
+      ],
+    },
+    {
+      question: '¿Cuál es el animal más grande del mundo?',
+      image: 'img/preguntasJuego/ballena.jpg',
+      answers: [
+        { text: 'Elefante', isCorrect: false },
+        { text: 'Ballena Azul', isCorrect: true },
+        { text: 'Jirafa', isCorrect: false },
+        { text: 'Tiburón', isCorrect: false },
+      ],
+    },
+    {
+      question: '¿Cuánto es 8 x 7?',
+      image: 'img/preguntasJuego/matematicas.jpg',
+      answers: [
+        { text: '54', isCorrect: false },
+        { text: '56', isCorrect: true },
+        { text: '50', isCorrect: false },
+        { text: '48', isCorrect: false },
+      ],
+    },
+    {
+      question: '¿Cuál es el país más grande del mundo?',
+      image: 'img/preguntasJuego/rusia.jpg',
+      answers: [
+        { text: 'China', isCorrect: false },
+        { text: 'Rusia', isCorrect: true },
+        { text: 'Canadá', isCorrect: false },
+        { text: 'Estados Unidos', isCorrect: false },
+      ],
+    },
+    {
+      question: '¿Qué instrumento se utiliza para medir la temperatura?',
+      image: 'img/preguntasJuego/termometro.jpg',
+      answers: [
+        { text: 'Barómetro', isCorrect: false },
+        { text: 'Termómetro', isCorrect: true },
+        { text: 'Higrómetro', isCorrect: false },
+        { text: 'Anemómetro', isCorrect: false },
+      ],
+    },
+    {
+      question: '¿Qué es el ADN?',
+      image: 'img/preguntasJuego/adn.jpg',
+      answers: [
+        { text: 'Ácido desoxirribonucleico', isCorrect: true },
+        { text: 'Ácido ribonucleico', isCorrect: false },
+        { text: 'Proteína', isCorrect: false },
+        { text: 'Célula', isCorrect: false },
+      ],
+    },
+    {
+      question: '¿En qué país se originó el sushi?',
+      image: 'img/preguntasJuego/sushi.jpg',
+      answers: [
+        { text: 'China', isCorrect: false },
+        { text: 'Japón', isCorrect: true },
+        { text: 'Corea del Sur', isCorrect: false },
+        { text: 'Tailandia', isCorrect: false },
+      ],
+    },
+    {
+      question: '¿Cuál es la principal fuente de energía del sol?',
+      image: 'img/preguntasJuego/energia.jpg',
+      answers: [
+        { text: 'Energía eólica', isCorrect: false },
+        { text: 'Fusión nuclear', isCorrect: true },
+        { text: 'Energía geotérmica', isCorrect: false },
+        { text: 'Energía hidráulica', isCorrect: false },
+      ],
+    },
+    {
+      question: '¿Cuál es el océano más pequeño del mundo?',
+      image: 'img/preguntasJuego/atlantico.jpg',
+      answers: [
+        { text: 'Atlántico', isCorrect: false },
+        { text: 'Índico', isCorrect: false },
+        { text: 'Ártico', isCorrect: true },
+        { text: 'Pacífico', isCorrect: false },
+      ],
+    },
+    {
+      question: '¿Cuál es el continente con más países?',
+      image: 'img/preguntasJuego/africa.jpg',
+      answers: [
+        { text: 'Asia', isCorrect: false },
+        { text: 'África', isCorrect: true },
+        { text: 'Europa', isCorrect: false },
+        { text: 'América', isCorrect: false },
+      ],
+    },
     
   ];
   

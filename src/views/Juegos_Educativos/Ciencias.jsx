@@ -255,7 +255,107 @@ export const Ciencias = () => {
         { image: "img/ciencias/anonimo.jpg", text: "Terremotos", isCorrect: false }
       ],
       correctAnswer: "La Luna",
-    }
+    },
+    {
+      question: "¿Qué animal es conocido por su capacidad de cambiar de color para camuflarse?",
+      options: [
+        { image: "img/ciencias/anonimo.jpg", text: "Camaleón", isCorrect: true },
+        { image: "img/ciencias/anonimo.jpg", text: "Perro", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Gato", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Tigre", isCorrect: false }
+      ],
+      correctAnswer: "Camaleón",
+    },
+    {
+      question: "¿Cuál es el metal más liviano?",
+      options: [
+        { image: "img/ciencias/anonimo.jpg", text: "Litio", isCorrect: true },
+        { image: "img/ciencias/anonimo.jpg", text: "Hierro", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Aluminio", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Cobre", isCorrect: false }
+      ],
+      correctAnswer: "Litio",
+    },
+    {
+      question: "¿Qué país es famoso por la Torre Eiffel?",
+      options: [
+        { image: "img/ciencias/anonimo.jpg", text: "Francia", isCorrect: true },
+        { image: "img/ciencias/anonimo.jpg", text: "Italia", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "España", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Alemania", isCorrect: false }
+      ],
+      correctAnswer: "Francia",
+    },
+    {
+      question: "¿Cómo se llama el proceso mediante el cual las plantas producen oxígeno?",
+      options: [
+        { image: "img/ciencias/anonimo.jpg", text: "Fotosíntesis", isCorrect: true },
+        { image: "img/ciencias/anonimo.jpg", text: "Respiración", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Fermentación", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Oxidación", isCorrect: false }
+      ],
+      correctAnswer: "Fotosíntesis",
+    },
+    {
+      question: "¿Qué océano es el más grande del mundo?",
+      options: [
+        { image: "img/ciencias/anonimo.jpg", text: "Océano Pacífico", isCorrect: true },
+        { image: "img/ciencias/anonimo.jpg", text: "Océano Atlántico", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Océano Índico", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Océano Ártico", isCorrect: false }
+      ],
+      correctAnswer: "Océano Pacífico",
+    },
+    {
+      question: "¿Qué invento revolucionó la comunicación a larga distancia en el siglo XIX?",
+      options: [
+        { image: "img/ciencias/anonimo.jpg", text: "Telégrafo", isCorrect: true },
+        { image: "img/ciencias/anonimo.jpg", text: "Teléfono", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Radio", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Televisión", isCorrect: false }
+      ],
+      correctAnswer: "Telégrafo",
+    },
+    {
+      question: "¿Qué vitamina es producida por el cuerpo al exponerse al sol?",
+      options: [
+        { image: "img/ciencias/anonimo.jpg", text: "Vitamina D", isCorrect: true },
+        { image: "img/ciencias/anonimo.jpg", text: "Vitamina C", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Vitamina A", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Vitamina E", isCorrect: false }
+      ],
+      correctAnswer: "Vitamina D",
+    },
+    {
+      question: "¿Qué tipo de animal es un ornitorrinco?",
+      options: [
+        { image: "img/ciencias/anonimo.jpg", text: "Mamífero", isCorrect: true },
+        { image: "img/ciencias/anonimo.jpg", text: "Reptil", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Anfibio", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Ave", isCorrect: false }
+      ],
+      correctAnswer: "Mamífero",
+    },
+    {
+      question: "¿Cuál es el símbolo químico del agua?",
+      options: [
+        { image: "img/ciencias/anonimo.jpg", text: "H2O", isCorrect: true },
+        { image: "img/ciencias/anonimo.jpg", text: "CO2", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "O2", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "NH3", isCorrect: false }
+      ],
+      correctAnswer: "H2O",
+    },
+    {
+      question: "¿Qué continente es conocido como 'la cuna de la humanidad'?",
+      options: [
+        { image: "img/ciencias/anonimo.jpg", text: "África", isCorrect: true },
+        { image: "img/ciencias/anonimo.jpg", text: "Asia", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "Europa", isCorrect: false },
+        { image: "img/ciencias/anonimo.jpg", text: "América", isCorrect: false }
+      ],
+      correctAnswer: "África",
+    },
   ];
   
 

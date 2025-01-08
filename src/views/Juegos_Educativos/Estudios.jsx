@@ -88,7 +88,6 @@ export const Estudios = () => {
       ],
       correctAnswer: "Egipto",
     },
-    // Nuevas preguntas difíciles e intermedias
     {
       question: "¿En qué año se fundó la ciudad de Roma?",
       options: [
@@ -268,6 +267,96 @@ export const Estudios = () => {
         { text: "California", img: "img/california.jpg" },
       ],
       correctAnswer: "Hawái",
+    },
+    {
+      question: "¿En qué país se encuentra la Torre Eiffel?",
+      options: [
+        { text: "Francia", img: "img/francia.jpg" },
+        { text: "Italia", img: "img/italia.jpg" },
+        { text: "España", img: "img/espana.jpg" },
+      ],
+      correctAnswer: "Francia",
+    },
+    {
+      question: "¿Qué civilización construyó los templos de Angkor Wat?",
+      options: [
+        { text: "Jemer", img: "img/jemer.jpg" },
+        { text: "Maya", img: "img/maya.jpg" },
+        { text: "Inca", img: "img/inca.jpg" },
+      ],
+      correctAnswer: "Jemer",
+    },
+    {
+      question: "¿Cuál es la moneda de Japón?",
+      options: [
+        { text: "Yen", img: "img/yen.jpg" },
+        { text: "Won", img: "img/won.jpg" },
+        { text: "Baht", img: "img/baht.jpg" },
+      ],
+      correctAnswer: "Yen",
+    },
+    {
+      question: "¿En qué país se encuentra el Machu Picchu?",
+      options: [
+        { text: "Perú", img: "img/peru.jpg" },
+        { text: "Chile", img: "img/chile.jpg" },
+        { text: "Bolivia", img: "img/bolivia.jpg" },
+      ],
+      correctAnswer: "Perú",
+    },
+    {
+      question: "¿Qué científico desarrolló la teoría de la relatividad?",
+      options: [
+        { text: "Albert Einstein", img: "img/einstein.jpg" },
+        { text: "Isaac Newton", img: "img/newton.jpg" },
+        { text: "Galileo Galilei", img: "img/galileo.jpg" },
+      ],
+      correctAnswer: "Albert Einstein",
+    },
+    {
+      question: "¿Quién fue el líder de la Revolución Rusa de 1917?",
+      options: [
+        { text: "Vladimir Lenin", img: "img/lenin.jpg" },
+        { text: "Joseph Stalin", img: "img/stalin.jpg" },
+        { text: "León Trotsky", img: "img/trotsky.jpg" },
+      ],
+      correctAnswer: "Vladimir Lenin",
+    },
+    {
+      question: "¿Cuál es el continente más grande del mundo?",
+      options: [
+        { text: "Asia", img: "img/asia.jpg" },
+        { text: "África", img: "img/africa.jpg" },
+        { text: "América", img: "img/america.jpg" },
+      ],
+      correctAnswer: "Asia",
+    },
+    {
+      question: "¿Qué antiguo imperio construyó el Coliseo en Roma?",
+      options: [
+        { text: "Imperio Romano", img: "img/romano.jpg" },
+        { text: "Imperio Griego", img: "img/griego.jpg" },
+        { text: "Imperio Bizantino", img: "img/bizantino.jpg" },
+      ],
+      correctAnswer: "Imperio Romano",
+    },
+    {
+      question: "¿Qué ciudad fue la capital del Imperio Azteca?",
+      options: [
+        { text: "Tenochtitlán", img: "img/tenochtitlan.jpg" },
+        { text: "Teotihuacán", img: "img/teotihuacan.jpg" },
+        { text: "Chichen Itzá", img: "img/chichen.jpg" },
+      ],
+      correctAnswer: "Tenochtitlán",
+    },
+    {
+      question: "¿Cuál fue el principal sistema de escritura de los egipcios?",
+      options: [
+        { text: "Jeroglíficos", img: "img/jeroglifos.jpg" },
+        { text: "Cuneiforme", img: "img/cuneiforme.jpg" },
+        { text: "Runas", img: "img/runas.jpg" },
+      ],
+      correctAnswer: "Jeroglíficos",
     }
   
   ];
