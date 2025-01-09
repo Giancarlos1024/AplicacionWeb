@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-import '../../assets/css/Sopaletras.css';
+import "../../assets/css/Sopaletras.css";
 
 const SopaDeLetras = () => {
   const [selectedWord, setSelectedWord] = useState([]);
@@ -10,16 +10,13 @@ const SopaDeLetras = () => {
   const [foundWords, setFoundWords] = useState([]);
   const [wordColors, setWordColors] = useState({});
   const [musicPlaying, setMusicPlaying] = useState(true);
-  const [level, setLevel] = useState(1); // Nivel de dificultad
-  const [waiting, setWaiting] = useState(false); // Estado para controlar si el jugador debe esperar
-  const [waitingTime, setWaitingTime] = useState(5); // Tiempo de espera en segundos
+  const [level, setLevel] = useState(1);
+  const [isDragging, setIsDragging] = useState(false); // Nuevo estado para detectar arrastre
 
-  
   const backgroundMusicRef = useRef(new Audio("music/musica_matematicas.mp3"));
   const correctSoundRef = useRef(new Audio("music/correcto_matematicas.mp3"));
   const incorrectSoundRef = useRef(new Audio("music/incorrecto.mp3"));
 
-  // Palabras y cuadrículas por nivel
   const levels = [
     {
       // Nivel 1: Sistema Solar
@@ -88,19 +85,24 @@ const SopaDeLetras = () => {
       ],
     },
   ];
-  
+
   const availableColors = [
-    "#FF5733", "#FF5733", "#FF5733", "#FF5733", "#FF5733", "#FF5733", "#FF5733", "#FF5733",
+    "#FF5733",
+    "#FF5733",
+    "#FF5733",
+    "#FF5733",
+    "#FF5733",
+    "#FF5733",
+    "#FF5733",
+    "#FF5733",
   ];
-  
 
   useEffect(() => {
-    // Reiniciar las palabras encontradas y las posiciones cuando el nivel cambia
     setFoundPositions([]);
     setFoundWords([]);
     setWordColors({});
   }, [level]);
-  
+
   useEffect(() => {
     const backgroundMusic = backgroundMusicRef.current;
     backgroundMusic.loop = true;
@@ -113,17 +115,12 @@ const SopaDeLetras = () => {
   }, []);
 
   const reiniciarJuego = () => {
-    // Reiniciar todos los estados relacionados con el progreso del juego
-    setLevel(1); // Reiniciar el nivel a 1
-    setFoundPositions([]); // Limpiar las posiciones de las palabras encontradas
-    setFoundWords([]); // Limpiar las palabras encontradas
-    setWordColors({}); // Limpiar los colores de las palabras encontradas
-    setSelectedWord([]); // Limpiar la palabra seleccionada
-    setWaiting(false); // Desactivar la espera
-    setWaitingMessage(""); // Limpiar el mensaje de espera
-    setScore(0); // Resetear el puntaje (si lo estás utilizando)
+    setLevel(1);
+    setFoundPositions([]);
+    setFoundWords([]);
+    setWordColors({});
+    setSelectedWord([]);
   };
-  
 
   const toggleMusic = () => {
     const backgroundMusic = backgroundMusicRef.current;
@@ -135,50 +132,48 @@ const SopaDeLetras = () => {
     setMusicPlaying(!musicPlaying);
   };
 
+  const checkWord = () => {
+    const formedWord = selectedWord.map((item) => item.letter).join("");
+    const currentWords = levels[level - 1].words;
 
-  const [waitingMessage, setWaitingMessage] = useState(""); // Mensaje para mostrar durante la espera
+    if (currentWords.includes(formedWord) && !foundWords.includes(formedWord)) {
+      const newColor =
+        wordColors[formedWord] ||
+        availableColors[Object.keys(wordColors).length % availableColors.length];
 
-const checkWord = () => {
-  const formedWord = selectedWord.map((item) => item.letter).join("");
-  const currentWords = levels[level - 1].words;
-
-  if (currentWords.includes(formedWord) && !foundWords.includes(formedWord)) {
-    const newColor =
-      wordColors[formedWord] || availableColors[Object.keys(wordColors).length % availableColors.length];
-
-    setWordColors({ ...wordColors, [formedWord]: newColor });
-    setFoundPositions([...foundPositions, ...selectedWord]);
-    setFoundWords([...foundWords, formedWord]);
-    setSelectedWord([]);
-
-    correctSoundRef.current.play();
-  } else {
-    // Si la palabra es incorrecta, mostrar el mensaje de espera
-    setWaiting(true);
-    setWaitingMessage(`Espere 5 segundos para intentar una nueva selección.`);
-    
-    // Limpiar la palabra seleccionada después de 5 segundos
-    setTimeout(() => {
+      setWordColors({ ...wordColors, [formedWord]: newColor });
+      setFoundPositions([...foundPositions, ...selectedWord]);
+      setFoundWords([...foundWords, formedWord]);
       setSelectedWord([]);
-      setWaiting(false); // Desactivar la espera
-      setWaitingMessage(""); // Limpiar el mensaje
-    }, 5000);
-    
-    // incorrectSoundRef.current.play();
-  }
-};
 
-  const handleSelect = (letter, row, col) => {
-    if (!selectedWord.find((item) => item.row === row && item.col === col)) {
-      setSelectedWord([...selectedWord, { letter, row, col }]);
+      correctSoundRef.current.play();
+    } else {
+      setSelectedWord([]);
+      incorrectSoundRef.current.play();
     }
   };
 
-  useEffect(() => {
-    if (selectedWord.length > 0) {
-      checkWord();
+  const handleMouseDown = (letter, row, col) => {
+    setIsDragging(true); // Activar arrastre
+    setSelectedWord([{ letter, row, col }]); // Iniciar selección con la celda inicial
+  };
+
+  const handleMouseEnter = (letter, row, col) => {
+    if (isDragging) {
+      // Agregar la celda a la selección si se está arrastrando
+      setSelectedWord((prev) => {
+        if (!prev.find((item) => item.row === row && item.col === col)) {
+          return [...prev, { letter, row, col }];
+        }
+        return prev;
+      });
     }
-  }, [selectedWord]);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false); // Finalizar arrastre
+    checkWord(); // Verificar la palabra seleccionada
+  };
 
   const getCellColor = (row, col) => {
     const found = foundPositions.find((pos) => pos.row === row && pos.col === col);
@@ -197,7 +192,6 @@ const checkWord = () => {
       <div className="titulo-sopa">
         <h1 className="text-light ">Sopa de Letras</h1>
       </div>
-      {waitingMessage && <div className="waiting-message">{waitingMessage}</div>}
       <div>
         <button className="btn btn-primary mb-3" onClick={toggleMusic}>
           {musicPlaying ? "Pausar Música" : "Reproducir Música"}
@@ -231,7 +225,9 @@ const checkWord = () => {
                   cursor: "pointer",
                   backgroundColor: getCellColor(rowIndex, colIndex),
                 }}
-                onClick={() => handleSelect(letter, rowIndex, colIndex)}
+                onMouseDown={() => handleMouseDown(letter, rowIndex, colIndex)}
+                onMouseEnter={() => handleMouseEnter(letter, rowIndex, colIndex)}
+                onMouseUp={handleMouseUp}
               >
                 {letter}
               </div>
@@ -242,7 +238,7 @@ const checkWord = () => {
 
       <div className="mt-4">
         <div className="titulo-sopa">
-        <h5 className="text-light">Palabras para buscar:</h5>
+          <h5 className="text-light">Palabras para buscar:</h5>
         </div>
         <div className="d-flex justify-content-center flex-wrap">
           {levels[level - 1].words.map((word, index) => (
@@ -260,12 +256,7 @@ const checkWord = () => {
       </div>
 
       {allWordsFound && (
-        <div
-          className="modal fade show"
-          tabIndex="-1"
-          role="dialog"
-          style={{ display: "block" }}
-        >
+        <div className="modal fade show" tabIndex="-1" role="dialog" style={{ display: "block" }}>
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -275,13 +266,13 @@ const checkWord = () => {
                 <p>Has encontrado todas las palabras.</p>
               </div>
               <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={reiniciarJuego}
-              >
-                Jugar de nuevo
-              </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={reiniciarJuego}
+                >
+                  Jugar de nuevo
+                </button>
               </div>
             </div>
           </div>
