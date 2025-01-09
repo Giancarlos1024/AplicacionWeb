@@ -1,27 +1,28 @@
 .footer-web{
     background-color: #148605fb;
-    height: 500px;
-    padding: 85px;
+    height: auto;
+    padding: 0px 85px;
     color: #fff;
 }
 
 .footer-web > section{
-    /* background-color: rgb(221, 58, 8); */
+    /* background-color: rgb(221, 58, 8);  */
     height: auto;
-    padding-top: 10px;
+   
 }
 
 .informacion-footer{
-    /* background-color: thistle; */
+    /* background-color: thistle;  */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 60px;
+    padding-top: 10px;
+   
 
 }
 .informacion-footer > div > h3{
-    margin-bottom: 25px;
+    
     font-size: 18px;
 }
 
@@ -33,6 +34,7 @@
 }
 .unidad-educativa > h3{
     line-height: 1.5;
+    text-align: center;
 }
 
 .unidad-educativa > p{
@@ -45,23 +47,34 @@
     width: 30%;
     padding-left: 20px;
 }
+
+.contacto > p{
+    margin-bottom: -10px;
+}
 .telefono{
-    /* background-color: brown; */
+    /* background-color: brown;  */
     width: 30%;
     padding-left: 20px;
 }
 .telefono > h3{
-    margin-left: -25px;
+    
     margin-top: -5px;
 }
 .telefono > h3 > img{
     width: 30px;
+    margin-right: 5px;
+    
+}
+.telefono > p > img{
+    width: 30px;
+    margin-right: 5px;
     
 }
 .redes_sociales{
     /* background-color: yellow; */
     padding-bottom: 40px;
     border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
 }
 .redes_sociales > a > img{
     margin-right: 20px;
@@ -78,8 +91,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 10px;
     
-    padding-top: 40px;
+   
 
 }
 .logo-titulo{

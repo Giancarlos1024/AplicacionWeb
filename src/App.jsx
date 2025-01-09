@@ -36,7 +36,7 @@ function App() {
         <Route path="/laberinto" element={<Laberinto />} />
         <Route path="/preguntas" element={<Juego_Preguntas />} />
         <Route path="/sonidos" element={<Sonidos_animales />} />
-        <Route path="/multijuegos" element={<Multijuegos />} />
+        <Route path="/galeria" element={<Multijuegos />} />
         <Route path="/memorama" element={<Memorama />} />
       </Routes>
       <Footer />

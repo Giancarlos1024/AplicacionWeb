@@ -1,54 +1,66 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import '../../assets/css/Multijuegos.css';
 
 const Multijuegos = () => {
-  const navigate = useNavigate();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Mapa de juegos y sus imágenes
-  const gameImages = {
-    laberinto: 'img/laberinto.png',
-    memorama: 'img/memorama.png',
-    rompecabezas: 'img/rompecabezas.png',
-    ingles: 'img/ingles.png',
-    matematicas: 'img/matematicas.png',
+  const images = [
+    'img/carrusel/foto1.jpeg',
+    'img/carrusel/foto2.jpeg',
+    'img/carrusel/foto3.jpeg',
+    'img/carrusel/foto4.jpeg',
+    'img/carrusel/foto5.jpeg',
+    'img/carrusel/foto6.jpeg',
+    'img/carrusel/foto7.jpeg',
+    'img/carrusel/foto8.jpeg',
+    'img/carrusel/foto9.jpeg',
+    'img/carrusel/foto10.jpeg',
+  ];
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  const handleGameSelection = (game) => {
-    navigate(`/${game}`);
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   return (
-    <div className="container-multijuegos mt-0 text-center">
-      <h1 className="display-6 text-primary mb-2 font-weight-bold">MULTIJUEGOS</h1>
-      <div>
-        <h4 className="mb-4 textmulti">Selecciona un juego para jugar</h4>
-        <div className="row justify-content-center multijuego-div">
-          {Object.keys(gameImages).map((gameKey) => (
-            <div key={gameKey} className="col-md-4 game-button-container mb-4">
-              <div className="game-card p-3 text-center contenedorJuegoMulti">
-                <img
-                  src={gameImages[gameKey]}
-                  alt={gameKey}
-                  className="game-image mb-3"
-                  style={{ maxHeight: '180px', maxWidth: '200px' }}
-                />
-                <button
-                  className="btn btn-outline-primary game-button w-100"
-                  style={{
-                    color: "#fff",
-                    background: "rgb(13, 115, 231)"
-                  }}
-                  onClick={() => handleGameSelection(gameKey)}
-                >
-                  {gameKey.charAt(0).toUpperCase() + gameKey.slice(1)} Juego
-                </button>
-              </div>
+    <>
+      <div className='contenedorGaleria'>
+        <div className="carousel-container">
+        <button className="carousel-button prev" onClick={prevSlide}>
+          &#10094;
+        </button>
+        <div className='contenedorI'>
+          <div
+              className="carousel-wrapper"
+              style={{
+                transform: `translateX(-${currentIndex * 100}%)`,
+              }}
+            >
+              {images.map((image, index) => (
+                <div key={index} className="carousel-slide">
+                  <img src={image} alt={`Slide ${index + 1}`} />
+                </div>
+              ))}
             </div>
+        </div>
+        <button className="carousel-button next" onClick={nextSlide}>
+          &#10095;
+        </button>
+        <div className="carousel-indicators">
+          {images.map((_, index) => (
+            <span
+              key={index}
+              className={`indicator ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(index)}
+            ></span>
           ))}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

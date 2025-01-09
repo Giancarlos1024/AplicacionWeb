@@ -18,7 +18,7 @@ export const Footer = () => {
           </div>
           <div className='telefono'>
             <h3><img src="img/phone2.png" alt="telefono" />TELEFONO</h3>
-            <p>0991598287</p>
+            <p><img src="img/whatsapp1.png" alt="telefono" />0991598287</p>
           </div>
         </div>
         <div className='redes_sociales'>
@@ -34,11 +34,6 @@ export const Footer = () => {
           <img src="img/LogoE.png" alt="logo" />
           <NavLink to="/" className="titulo-header-principal-footer"><span className='titulo-header2'>ACADEMIA REPUBLICA DEL ECUADOR</span></NavLink>
         </div>
-        {/* <div className='opionesFooter'>
-          <a href="#">Ayuda</a>
-          <a href="#">Terminos</a>
-          <a href="#">Privacidad</a>
-        </div> */}
         <div className='subir-footer'>
          <a href="#"> <img src="img/subir2.png" alt="logo" /></a>
         </div>

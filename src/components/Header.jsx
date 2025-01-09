@@ -53,8 +53,8 @@ const Header = () => {
         case 'sonidos':
           navigate('/sonidos');
           break;
-        case 'multijuegos':
-          navigate('/multijuegos');
+        case 'galeria':
+          navigate('/galeria');
           break;
         case 'memorama':
           navigate('/memorama');
@@ -79,7 +79,7 @@ const Header = () => {
     <nav className="Nav-header">
       <div className="logo-principal">
         <img src="img/LogoE.png" alt="logo" />
-        <NavLink to="/" className="titulo-header-principal">
+        <NavLink to="https://www.tiktok.com/@amre2363?_t=ZM-8sseRlsCqcY&_r=1" target='_blank' className="titulo-header-principal">
           <span className="titulo-header">ACADEMIA REPÚBLICA DEL ECUADOR</span>
         </NavLink>
       </div>
@@ -97,7 +97,7 @@ const Header = () => {
         ) : (
           <>
             <NavLink to="/">Volver al Inicio</NavLink>
-            <NavLink to="/multijuegos">Otros Juegos</NavLink>
+            <NavLink to="/galeria">Galeria</NavLink>
           </>
         )}
         <div className="Nav-buscador">

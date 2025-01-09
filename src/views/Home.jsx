@@ -139,8 +139,8 @@ export const Home = () => {
           </div>
           <div className='juego-div'>
             <img src="img/multijuegos.png" alt="multijuegos" />
-            <p>MULTIJUEGOS</p>
-            <NavLink to="/multijuegos" className="button-jugar-educativos" >Jugar</NavLink>
+            <p>GALERIA</p>
+            <NavLink to="/galeria" className="button-jugar-educativos" >Ver</NavLink>
           </div>
         </div>
 
