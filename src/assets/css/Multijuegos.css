@@ -1,135 +1,96 @@
-.contenedorGaleria{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0px 0px;
-    background-image: url("../../img/fondos/fondoJuegosGeneral.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    
+.contenedorGaleria {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  background-image: url("../../img/fondos/fondoJuegosGeneral.jpg");
+  background-position: -1200px 0px;
 }
 
-
-.carousel-container {
-    position: relative;
-    width: 450px;
-    max-height: 700px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* Evita que las imágenes salgan del contenedor */
-  }
-  
-  .carousel-wrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .carousel-slide {
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centra la imagen */
-  }
-  
-  .carousel-slide img {
-    width: 100%; /* Ajusta al ancho del contenedor */
-    height: 100%; /* Ajusta al alto del contenedor */
-    object-fit: cover; /* Llena el espacio sin deformar la imagen */
-    display: block;
-  }
-  
-  .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    z-index: 1000;
-    border-radius: 50%;
-    user-select: none;
-    pointer-events: auto;
-    
+.tituloGaleria {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-.carousel-button.prev {
-  left: 10px;
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
 }
 
-.carousel-button.next {
-  right: 10px;
-}
-
-.carousel-button:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.carousel-indicators {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.indicator {
-  width: 10px;
-  height: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
+.galeria-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.indicator.active {
-  background-color: #fff;
-}
-
-/* Responsividad para dispositivos móviles */
-@media (max-width: 768px) {
-  .carousel-container {
-    width: 100%; /* Usa el ancho completo del dispositivo */
-    max-height: 400px; /* Ajusta la altura para móviles */
-    border-radius: 10px;
-  }
-
-  .carousel-slide img {
-    width: 100%; /* Ajusta al ancho del contenedor */
-    height: 100%; /* Ajusta al alto del contenedor */
-    object-fit: cover; /* Mantén el relleno proporcional */
-  }
-
-  .carousel-button {
-    font-size: 1.5rem; /* Reduce el tamaño de los botones en móviles */
-    padding: 0.3rem 0.8rem;
-  }
-
-  .carousel-indicators {
-    gap: 5px; /* Reduce la separación entre indicadores */
-  }
-
-  .indicator {
-    width: 8px;
-    height: 8px; /* Ajusta el tamaño de los indicadores */
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel-container {
-    max-height: 650px; /* Reduce la altura para pantallas más pequeñas */
-    border-radius: 0px;
-  }
-  .contenedorGaleria{
-   
-    margin: 0px;
+/* Regla para hacer que las primeras dos imágenes ocupen el 50% del contenedor */
+.galeria-item:nth-child(1),.galeria-item:nth-child(26){
+  grid-column: span 8; /* Hace que ocupen dos columnas */
+  grid-row: span 1; /* Ocupan dos filas */
+  height: 500px;
 }
 
 
-  .carousel-button {
-    font-size: 1.2rem; /* Reduce aún más el tamaño de los botones */
-  }
+.galeria-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.galeria-item:hover .galeria-img {
+  transform: scale(1.05);
+}
+
+/* Estilos para el modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 100%;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-img {
+  width: 100%;
+  height: 100vh;
+  border-radius: 8px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+  font-weight: bold;
+}
+
+.modal-close:hover {
+  color: #ff6b6b;
 }
