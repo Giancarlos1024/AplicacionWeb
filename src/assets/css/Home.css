@@ -39,7 +39,7 @@
 
 .titulo-juego-educativo{
     text-align: center;
-    margin-top: 40px;
+    
   }
 .contenedor-titulos{
     /* background-color: olivedrab; */
@@ -61,9 +61,14 @@
 .seccion-juego{
     color: #24e00bfb;
 }
-
-.contenedor-juegos-educativos{
+.FondoPrincipalJuegos{
     background-image: url("../../img/fondos/fondoJuegosGeneral.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -1650px 0px;
+}
+.contenedor-juegos-educativos{
+    /* background-image: url("../../img/fondos/fondoJuegosGeneral.jpg"); */
     padding: 80px;
     display: flex;
     background-size: cover;
@@ -102,7 +107,7 @@
 /*JUEGOS DE MEMORIA*/
 
 .contenedor-memorama{
-    background-image: url("../../img/fondos/fondoJuegosGeneral.jpg");
+    /* background-image: url("../../img/fondos/fondoJuegosGeneral.jpg"); */
     display: flex;
     flex-direction: row;
     justify-content: center;
