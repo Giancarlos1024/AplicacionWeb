@@ -5,13 +5,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../../assets/css/Sopaletras.css";
 
 const SopaDeLetras = () => {
+  const [levelCompleted, setLevelCompleted] = useState(false);
   const [selectedWord, setSelectedWord] = useState([]);
   const [foundPositions, setFoundPositions] = useState([]);
   const [foundWords, setFoundWords] = useState([]);
   const [wordColors, setWordColors] = useState({});
   const [musicPlaying, setMusicPlaying] = useState(true);
   const [level, setLevel] = useState(1);
-  const [isDragging, setIsDragging] = useState(false); // Nuevo estado para detectar arrastre
+  const [isDragging, setIsDragging] = useState(false);
 
   const backgroundMusicRef = useRef(new Audio("music/musica_matematicas.mp3"));
   const correctSoundRef = useRef(new Audio("music/correcto_matematicas.mp3"));
@@ -19,7 +20,6 @@ const SopaDeLetras = () => {
 
   const levels = [
     {
-      // Nivel 1: Sistema Solar
       words: ["SOL", "TIERRA", "LUNA", "MARTE", "VENUS", "JUPITER", "SATURNO"],
       grid: [
         ["S", "O", "L", "T", "I", "E", "R", "D", "A"],
@@ -32,7 +32,6 @@ const SopaDeLetras = () => {
       ],
     },
     {
-      // Nivel 2: Cuerpo Humano
       words: ["CORAZON", "CEREBRO", "RIÑON", "PULMON", "HIGADO", "HUESO"],
       grid: [
         ["C", "O", "R", "A", "Z", "O", "N", "T", "O"],
@@ -45,7 +44,6 @@ const SopaDeLetras = () => {
       ],
     },
     {
-      // Nivel 3: Hardware y Software
       words: ["MEMORIA", "DISCO", "PANTALLA", "TECLADO", "SOFTWARE", "REDES"],
       grid: [
         ["P", "R", "R", "E", "D", "E", "S", "D", "O"],
@@ -58,7 +56,6 @@ const SopaDeLetras = () => {
       ],
     },
     {
-      // Nivel 4: Ciencias Naturales
       words: ["FISICA", "QUIMICA", "BIOLOGIA", "GEOGRAFIA", "ATOMO", "ELEMENTO", "MOLECULA"],
       grid: [
         ["F", "I", "S", "I", "C", "A", "Q", "B", "X"],
@@ -71,7 +68,6 @@ const SopaDeLetras = () => {
       ],
     },
     {
-      // Nivel 5: Tecnología Avanzada
       words: ["IA", "ROBOT", "CYBER", "BIGDATA", "BLOCKCHA"],
       grid: [
         ["I", "A", "T", "E", "L", "I", "G", "E", "N"],
@@ -120,6 +116,7 @@ const SopaDeLetras = () => {
     setFoundWords([]);
     setWordColors({});
     setSelectedWord([]);
+    setLevelCompleted(false);
   };
 
   const toggleMusic = () => {
@@ -132,35 +129,48 @@ const SopaDeLetras = () => {
     setMusicPlaying(!musicPlaying);
   };
 
+  const isWordAlreadyFound = (word) => 
+    foundWords.includes(word) || foundWords.includes(word.split("").reverse().join(""));
+
   const checkWord = () => {
     const formedWord = selectedWord.map((item) => item.letter).join("");
+    const reversedWord = formedWord.split("").reverse().join("");
     const currentWords = levels[level - 1].words;
 
-    if (currentWords.includes(formedWord) && !foundWords.includes(formedWord)) {
+    if (
+      (currentWords.includes(formedWord) || currentWords.includes(reversedWord)) &&
+      !isWordAlreadyFound(formedWord)
+    ) {
       const newColor =
         wordColors[formedWord] ||
         availableColors[Object.keys(wordColors).length % availableColors.length];
 
-      setWordColors({ ...wordColors, [formedWord]: newColor });
-      setFoundPositions([...foundPositions, ...selectedWord]);
-      setFoundWords([...foundWords, formedWord]);
+      const wordToAdd = currentWords.includes(formedWord) ? formedWord : reversedWord;
+      setWordColors((prev) => ({ ...prev, [wordToAdd]: newColor }));
+      setFoundPositions((prev) => [...prev, ...selectedWord]);
+      setFoundWords((prev) => [...prev, wordToAdd]);
       setSelectedWord([]);
 
-      correctSoundRef.current.play();
+      correctSoundRef.current.currentTime = 0;
+      correctSoundRef.current
+        .play()
+        .catch((error) => console.error("Error al reproducir sonido correcto:", error));
     } else {
+      incorrectSoundRef.current.currentTime = 0;
+      incorrectSoundRef.current
+        .play()
+        .catch((error) => console.error("Error al reproducir sonido incorrecto:", error));
       setSelectedWord([]);
-      incorrectSoundRef.current.play();
     }
   };
 
   const handleMouseDown = (letter, row, col) => {
-    setIsDragging(true); // Activar arrastre
-    setSelectedWord([{ letter, row, col }]); // Iniciar selección con la celda inicial
+    setIsDragging(true);
+    setSelectedWord([{ letter, row, col }]);
   };
 
   const handleMouseEnter = (letter, row, col) => {
     if (isDragging) {
-      // Agregar la celda a la selección si se está arrastrando
       setSelectedWord((prev) => {
         if (!prev.find((item) => item.row === row && item.col === col)) {
           return [...prev, { letter, row, col }];
@@ -171,8 +181,8 @@ const SopaDeLetras = () => {
   };
 
   const handleMouseUp = () => {
-    setIsDragging(false); // Finalizar arrastre
-    checkWord(); // Verificar la palabra seleccionada
+    setIsDragging(false);
+    checkWord();
   };
 
   const getCellColor = (row, col) => {
@@ -185,12 +195,20 @@ const SopaDeLetras = () => {
       : "#f8f9fa";
   };
 
-  const allWordsFound = foundWords.length === levels[level - 1].words.length;
+  const allWordsFound = levels[level - 1].words.every((word) =>
+    foundWords.includes(word)
+  );
+
+  useEffect(() => {
+    if (allWordsFound) {
+      setLevelCompleted(true);
+    }
+  }, [allWordsFound]);
 
   return (
     <div className="container sopaletrass mt-0 text-center">
       <div className="titulo-sopa">
-        <h1 className="text-light ">Sopa de Letras</h1>
+        <h1 className="text-light">Sopa de Letras</h1>
       </div>
       <div>
         <button className="btn btn-primary mb-3" onClick={toggleMusic}>
@@ -211,7 +229,7 @@ const SopaDeLetras = () => {
         </div>
       </div>
 
-      <div className="grid" style={{ display: "" }}>
+      <div className="grid">
         {levels[level - 1].grid.map((row, rowIndex) => (
           <div key={rowIndex} className="d-flex justify-content-center">
             {row.map((letter, colIndex) => (
@@ -244,7 +262,7 @@ const SopaDeLetras = () => {
           {levels[level - 1].words.map((word, index) => (
             <span
               key={index}
-              className={`badge m-1 p-2`}
+              className="badge m-1 p-2"
               style={{
                 backgroundColor: wordColors[word] || "BLACK",
               }}
@@ -255,7 +273,7 @@ const SopaDeLetras = () => {
         </div>
       </div>
 
-      {allWordsFound && (
+      {levelCompleted && (
         <div className="modal fade show" tabIndex="-1" role="dialog" style={{ display: "block" }}>
           <div className="modal-dialog" role="document">
             <div className="modal-content">
@@ -269,7 +287,10 @@ const SopaDeLetras = () => {
                 <button
                   type="button"
                   className="btn btn-secondary"
-                  onClick={reiniciarJuego}
+                  onClick={() => {
+                    reiniciarJuego();
+                    setLevelCompleted(false);
+                  }}
                 >
                   Jugar de nuevo
                 </button>
